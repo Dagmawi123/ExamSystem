@@ -1,0 +1,156 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full-Screen Bootstrap Modal</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<style>
+    .modal-body table{
+        margin: 0;
+        padding: 0;
+        width: 60%;
+
+    }
+    .modal-body table tr td{
+        text-align: center;
+        font-size: 30px;
+    }
+    .modal-body table tr td.ans{
+        font-style: italic;
+        font-size: 28px;
+    }
+    .modal-header{
+       background-color: #322C2C;
+       color: #E3D7D7; 
+       text-align: center;
+      
+    }
+    .modal-header h5{
+       font-size: 20px;  
+    }
+   
+
+    .modal-body{
+       background-color: #D9D9D9;  
+    }
+    .submit {
+width: 100px;
+  margin: auto;
+  margin-top: 36px;
+    }
+    .submit button{
+width: 95px;
+background-color: #F9FFF9;
+color: #1E0563;
+border: 0px;
+    }
+    
+</style>
+<body>
+
+<!-- Button to Open Full-Screen Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullScreenModal">
+ Add New Exam
+</button>
+
+<!-- Full-Screen Modal -->
+<div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="fullScreenModalLabel">Exam Description</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body inside">
+      <table>
+        <tr>
+            <td>Exam Type </td>
+            <td class="ans">Scholastic Aptitude Test</td>
+        </tr>
+
+        <tr style="height: 40px;"></tr>
+       
+        <tr>
+            <td>Exam Name </td>
+            <td class="ans"> SAT 2023</td>
+        </tr>
+        <tr style="height: 40px;"></tr>
+
+        <tr>
+            <td>Time Allotted </td>
+            <td class="ans"> 02:10:00</td>
+        </tr>
+        <tr style="height: 40px;"></tr>
+        <tr>
+            <td>Difficulty </td>
+            <td class="ans"> Intermediate Level</td>
+        </tr>
+
+      </table>
+      <div class="submit"><button class ="btn btn-primary">Start</button></div>
+      
+    
+        
+    </div>
+  
+    
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+  var question=1;
+  
+
+  function addAnswer(e){
+    var html2="<tr class=\"answers\"><td colspan=\"7px \"><input type=\"checkbox\" > <input type=\"text\" style=\"width: 80%;\">  <button onclick=\"deleteAnswer(this)\" class=\"btn-primary\">Delete</button></td></tr>"
+
+//     console.log("There");
+//     var tr=document.createElement('tr')
+//       var td=document.createElement('td')
+//       td.setAttribute('colspan',"7px")
+// var input1=document.createElement('input')
+// input1.setAttribute('type',"checkbox")
+// var input2=document.createElement('input')
+// input2.setAttribute('type',"text")
+// input2.style.width="80%"
+// // input1.appendChild(input2)
+//  var button=document.createElement('button')
+//  button.classList.add('btn');
+// button.classList.add('btn-primary');
+// button.textContent="Del"
+//  button.onclick=deleteAnswer
+
+// td.appendChild(input1)
+// td.appendChild(input2)
+// td.appendChild(button)
+// tr.appendChild(td)
+// e.insertAdjacentElement("afterend",tr)
+e.parentElement.parentElement.previousElementSibling.insertAdjacentHTML("beforebegin",html2)
+  }
+  function deleteAnswer(elt){
+// btn.textContent="WOW"
+var tr=elt.parentElement.parentElement
+tr.parentElement.removeChild(tr)
+// btn.parentElement.parentElement.parentElement.remove(btn.parentElement.parentElement)
+  }
+
+  function addQuestion(btn){
+// var ew=`${btn+"dsa" }`
+var html=`${"<tr style=\"height: 20px;\"></tr> <tr><td colspan=\"2\"  >Question <span>"+ ++question +"</span></td>   <td colspan=\"5\"><input type=\"text\" style=\"width: 100%;\" placeholder=\"Write question here\"></td> </tr><tr style=\"height: 20px;\"></tr> <tr class=\"answers\"><td colspan=\"7px\"><input type=\"checkbox\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"answers\"><td colspan=\"7px \"><input type=\"checkbox\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr style=\"height: 20px;\"></tr><tr><td><button class=\"btn btn-primary\" onclick=\"addAnswer(this)\">Add New Answer</button></td></tr>"}`
+var elt=btn.parentElement.parentElement.insertAdjacentHTML("beforebegin",html)
+  }
+
+
+</script>
+</html>

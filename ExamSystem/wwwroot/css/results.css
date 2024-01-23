@@ -1,0 +1,329 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 134.9rem;
+}.desktop-4-B6m {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  background-color: #ffffff;
+}
+.desktop-4-B6m .auto-group-23xs-8Gu {
+  width: 20rem;
+  height: 173.5rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-23xs-8Gu .rectangle-12-GP7 {
+  width: 20rem;
+  height: 169.3rem;
+  position: absolute;
+  left: 0;
+  top: 4.2rem;
+  background-color: #383737;
+}
+.desktop-4-B6m .auto-group-23xs-8Gu .logo-2-DJM {
+  width: 20rem;
+  height: 8.4rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+  vertical-align: top;
+}
+.desktop-4-B6m .auto-group-23xs-8Gu .documents-mKs {
+  width: 9.2rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 5.4rem;
+  top: 45.8rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-4-B6m .auto-group-23xs-8Gu .all-exams-fg9 {
+  width: 7.7rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 6.15rem;
+  top: 31.2rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-4-B6m .auto-group-23xs-8Gu .my-results-BPb {
+  width: 8.8rem;
+  height: 2.1rem;
+  position: absolute;
+  left: 5.35rem;
+  top: 38.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-4-B6m .auto-group-wsa1-snD {
+  width: 114.9rem;
+  height: 169.3rem;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-no3b-cjo {
+  margin-bottom: 7.9rem;
+  box-sizing: border-box;
+  padding: 0.8rem 4.6rem 0.9rem 39.6rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-no3b-cjo .exam-performance-Xbs {
+  margin: 0rem 24.8rem 0.3rem 0rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-no3b-cjo .avatar2-1-SD3 {
+  margin-right: 6.4rem;
+  width: 5.2rem;
+  height: 4.2rem;
+  object-fit: cover;
+  vertical-align: top;
+  border-radius: 2.9rem;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-no3b-cjo .john-doe-ZYZ {
+  margin-top: 0.3rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .filter-exam-results-here-GSy {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: #a8a8a8;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh {
+  box-sizing: border-box;
+  padding: 2rem 2.3rem 28rem 2.2rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-y5wv-W6R {
+  margin: 0rem 6rem 7.8rem 9.8rem;
+  width: calc(100% - 15.8rem);
+  height: 3.3rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-y5wv-W6R .auto-group-pzrf-1Yy {
+  width: 21.2rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: rgba(0, 0, 0, 0.2599999905);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-y5wv-W6R .auto-group-fju3-VU9 {
+  width: 21.2rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: rgba(0, 0, 0, 0.3000000119);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-y5wv-W6R .auto-group-9fuh-Nnq {
+  width: 21.2rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: rgba(0, 0, 0, 0.2599999905);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-y5wv-W6R .auto-group-5cuj-2Mb {
+  width: 21.2rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: rgba(0, 0, 0, 0.2599999905);
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-y5wv-W6R .auto-group-fawf-Gmj {
+  width: 9.8rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3c55d6;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .score-list-on-different-exams-94q {
+  margin: 0rem 40.3rem 0.6rem 0rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .rectangle-32-e1b {
+  margin: 0rem 13.8rem 5rem 15.2rem;
+  width: calc(100% - 29rem);
+  height: 44.1rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-brp5-ZPT {
+  margin: 0rem 25.4rem 3.9rem 32rem;
+  width: calc(100% - 57.4rem);
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-brp5-ZPT .performance-analytics-HqF {
+  margin: 0rem 1.9rem 0.2rem 0rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  font-style: italic;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-brp5-ZPT .analytics-1-CSR {
+  width: 8.4rem;
+  height: 6.1rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-qbwm-weu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-qbwm-weu .rectangle-33-6Gu {
+  margin-right: 3.3rem;
+  width: 52.2rem;
+  height: 39.5rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+.desktop-4-B6m .auto-group-wsa1-snD .auto-group-w6yk-PGh .auto-group-qbwm-weu .rectangle-34-2AZ {
+  width: 54.9rem;
+  height: 39.5rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+
+
+.desktop-4-B6m .auto-group-wsa1-snD .rectangle-35-ZgH {
+  width: 100%;
+  height: 10rem;
+  background-color: #3b3636;
+  position: relative;
+  bottom: -33px;
+}
+.auto-group-fawf-Gmj{
+  border-radius: 7px;
+border: 0px;
+box-shadow: 0px 0px 18px -8px rgba(0,0,0,1);
+font-size: 16px;
+}
+form.form-element {
+display:flex;
+}	

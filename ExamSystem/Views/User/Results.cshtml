@@ -1,0 +1,316 @@
+﻿@{
+    Layout = null;
+}
+@model List<Result>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Results</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C600" />
+   <link rel="stylesheet" href="/css/results.css"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.setOnLoadCallback(drawTable);
+
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawChart2);
+
+        function drawChart2() 
+        {
+            var data = google.visualization.arrayToDataTable([
+                ['Exam', 'Your Score(%)', 'Average Score(%)'],
+
+                // ['SAT', 75, 58],
+                // ['TOEFL', 87, 92],
+                // ['GKT', 77, 82],
+               
+            @foreach(var res in Model)
+                {
+                 <text>
+                 [
+                     '@res.Exam.ExamName',@res.Score,85
+                 ], 
+                 </text> 
+                }
+               
+               
+            ]);
+
+            var options = {
+                chart: {
+                    title: 'Your Performance',
+                    subtitle: 'In comparision to the average score on each Exam',
+                }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+
+
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Exam Name');
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Score(100%)');
+            // data.addColumn('number', 'Score(100%)');
+
+            data.addRows([
+
+        @foreach (var res in Model)
+        {
+            <text>
+                    [
+                        '@res.Exam.ExamName','@res.DateTaken.ToString("MMMM d ,yyyy")', @res.Score
+                    ],
+            </text>
+        }
+
+
+                // ["GKT2019", new Date(2023, 0, 1), 90], 
+                // ["GKT2017", new Date(2023, 0, 1), 86],
+                // ["SAT2023", new Date(2023, 0, 1), 70],
+                // ["TOEFL2015", new Date(2023, 0, 1), 60]
+                
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, { showRowNumber: true, selectionMode: 'single', width: '100%', height: '100%' });
+
+                   // console.log("The result array is ", results);
+
+
+        }
+        // google.visualization.events.addListener(table, 'select', selectHandler);
+
+        // table.draw(data, { showRowNumber: true });
+
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            var data = new google.visualization.arrayToDataTable([
+                ['Exam Type', "Score"],
+        @foreach (var res in Model)
+        {
+            <text>
+                    [
+                        '@res.Exam.ExamName', @res.Score
+                    ],
+            </text>
+        }
+            ]);
+
+            var options = {
+                title: 'Different International Exams',
+
+                legend: { position: 'none' },
+                chart: {
+                    title: 'Different International Exams',
+                    subtitle: 'Score Distribution'
+                },
+                bars: 'horizontal', // Required for Material Bar Charts.
+                axes: {
+                    x: {
+                        0: { side: 'top', label: 'Score(100%)' } // Top x-axis.
+                    }
+                },
+                bar: { groupWidth: "90%" }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
+        };
+
+
+       
+
+        window.onload = function () 
+        {
+            var results = [];
+
+          @foreach (var res in Model)
+          {
+            <text>
+                    results.push('@res.ResultId');
+
+            </text>
+
+         }
+
+
+            var rows = document.querySelectorAll('#table_div tbody tr');
+         
+             rows.forEach(function (row) 
+             {
+                row.setAttribute('data-toggle', 'modal');
+                row.setAttribute('data-target', '#fullScreenModal');
+            });
+
+            for (var index = 0; index < rows.length; index++) {
+                var row = rows[index];
+                var id = results[index];
+                
+                row.setAttribute('data-id', id);
+            }
+
+
+        for (var i = 0; i < rows.length; i++) {
+     
+            rows[i].addEventListener('click', function () {
+
+                var id = this.getAttribute('data-id');
+                fetch('/User/ResultDetail?id=' + id).then(function (response) {
+              
+                    return response.json();
+                }).then(function (jsObj) {
+                
+                    document.getElementById('Exname').textContent = jsObj.examName;
+                    document.getElementById('Usname').textContent = jsObj.examineeName;
+                    document.getElementById('Exscore').textContent = jsObj.examScore;
+                    document.getElementById('ScToPass').textContent = jsObj.scoreToPass;
+                    document.getElementById('Anscorrect').textContent = jsObj.correctAnswers;
+                    document.getElementById('date').textContent = jsObj.dateTaken;
+                    document.getElementById('status').textContent =jsObj.hasPassed?"Passed" : "Failed";
+                    @* document.getElementById('start').addEventListener('click', () => {
+                        window.location.href = "/User/ExamPage?id=" + id;
+                    }) *@
+                }).catch(e => { console.log("ERROR "+e.message )})
+
+
+            })
+        }
+
+
+
+
+        };
+    </script>
+
+
+</head>
+<body>
+    <div class="desktop-4-B6m">
+        <div class="auto-group-23xs-8Gu">
+            <div class="rectangle-12-GP7">
+            </div>
+            <img class="logo-2-DJM" src="~/images/logo.jpg" />
+            <p class="documents-mKs">Documents</p>
+            <p class="all-exams-fg9">All Exams</p>
+            <p class="my-results-BPb">My Results</p>
+        </div>
+        <div class="auto-group-wsa1-snD">
+            <div class="auto-group-no3b-cjo">
+                <p class="exam-performance-Xbs">Exam Performance</p>
+                <img class="avatar2-1-SD3" src="/images//avatar2.jpg" />
+                <p class="john-doe-ZYZ">John Doe</p>
+            </div>
+            <p class="filter-exam-results-here-GSy">Filter Exam Results Here</p>
+            <div class="auto-group-w6yk-PGh">
+                <div class="auto-group-y5wv-W6R" >
+               <form class="form-element" method="post" action="/User/Results" >
+                    <select name="ExamName" class="auto-group-pzrf-1Yy">
+                        <option value="" selected hidden>Exam Name</option>                       
+ @foreach(var name in ViewBag.ExamNames)
+                        {
+                           <option value="@name" >@name</option> 
+                        }
+   </select>
+                    <select name="SubjectName" class="auto-group-fju3-VU9">
+                        <option value="" selected hidden>Subject</option>
+                         @foreach(var name in ViewBag.SubjectNames)
+                        {
+                           <option value="@name" >@name</option> 
+                        }
+                    </select>
+
+                    <input type="date" name="date" class="auto-group-9fuh-Nnq" />
+
+                    <select name="score" class="auto-group-5cuj-2Mb">
+                        <option value="" selected hidden>Score Range</option>
+                        <option value="75">>75</option>
+                         <option value="50">50-75</option>
+                          <option value="0"> <50 </option>
+                    </select>
+                    <button type="submit" class="btn-primary auto-group-fawf-Gmj">Apply</button>
+                 </form>
+                 </div>
+               <p class="score-list-on-different-exams-94q">Score List On Different Exams</p>
+
+                <div class="rectangle-32-e1b" id="table_div"></div>
+
+
+           
+                <div class="auto-group-brp5-ZPT">
+                    <p class="performance-analytics-HqF">Performance Analytics</p>
+                    <img class="analytics-1-CSR" src="~/images/analytics.png" />
+                </div>
+                <div class="auto-group-qbwm-weu">
+
+                    <div class="rectangle-33-6Gu" id="top_x_div"></div>
+
+                    <div id="columnchart_material" class="rectangle-34-2AZ"></div>
+
+                </div>
+            </div>
+            <div class="rectangle-35-ZgH">
+            </div>
+        </div>
+    </div>
+    <!-- Full-Screen Modal -->
+    <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fullScreenModalLabel">Result in detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="res-table">
+                        <tr><td>Exam Name</td><td>Examinee Name</td></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr> <td id="Exname">GKT2019</td> <td id="Usname">john-doe</td> </tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr><td>Exam Score</td><td>Score To Pass</td></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr><td id="Exscore">76%</td><td id="ScToPass">75%</td></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr><td>Answered Correct</td><td>Date Taken</td></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr><td id="Anscorrect">3/5</td><td id="date">Jul 23,2024</td></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr style="height: 10px;"></tr>
+                        <tr><td>Status</td><td id="status">Passed</td></tr>
+
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>

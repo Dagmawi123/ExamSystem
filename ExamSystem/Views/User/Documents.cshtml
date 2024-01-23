@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;
+}
+@model ExamSystem.Models.ViewModels.DocumentViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="row row-main">
+        <div class="col-2 left ">
+            <div class="leftmenu">
+                <img src="/images/logo.jpg" alt="">
+                <ul>
+                    <li>All Exams</li>
+                    <li>My Results</li>
+                    <li>Documents</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-10 right">
+
+            <div class="uppermenu">
+                <img src="/images/avatar2.jpg" alt="">
+            </div>
+            <!-- <div class="search">
+                <input type="text" placeholder="Search">
+                <button ><i class="material-icons" style="font-size:20px;">search</i></button>
+            </div> -->
+            <div class="header">
+                <h3>Find all the documents uploaded here</h3>
+            </div>
+            <div class="filter">
+                <!-- <div class="nameSearch"><input type="text" name="" id=""></div>     -->
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input name" placeholder="Name">
+
+                </div>
+                <div class="select-wrapper">
+                    <select class="custom-select type">
+                        <option value="Type" hidden selected>Type</option>
+                        @foreach(var subType in Model.Subjects)
+                        {
+                            <option value=@subType.SubjectName>@subType.SubjectName</option>
+                        }
+                       </select>
+                    <!-- <i class="fas fa-caret-down select-icon"></i> -->
+                </div>
+
+                <div class="select-wrapper">
+                    <select class="custom-select version">
+                        <option value="Version" hidden selected>Version</option>
+                        @foreach (var Doc in Model.Documents)
+                        {
+                            <option value=@Doc.DocVersion>@Doc.DocVersion</option>
+                        }
+                       
+                    </select>
+                    <!-- <i class="fas fa-caret-down select-icon"></i> -->
+                </div>
+
+                <button class="btn-primary">Filter</button>
+            </div>
+
+            <div class="titles">
+                <div class="name-container"><label for="">Document Name</label></div>
+                <div class="Type-container"><label for="">Type</label></div>
+                <div class="date-container"><label for="">Date</label></div>
+                <div class="version-container"><label for="">Version</label></div>
+            </div>
+            <div class="hr-container">
+                <hr class="hr-1">
+                <hr class="hr-2">
+            </div>
+            <div class="docs">
+                @foreach (var doc in Model.Documents)
+                {
+                
+                    <div class="record">
+
+                        <div class="name"><label for="">@doc.DocName</label></div>
+                        <div class="type"><label for="">@doc.Subject.SubjectName</label></div>
+                        <div class="date"><label for="">@doc.DateAdded.ToString("dd-mm-yyyy")</label></div>
+                        <div class="version"><label for="">@doc.DocVersion</label></div>
+                    </div>
+                <hr class="break">
+                }
+
+               
+                
+                @* <div class="record">
+
+                    <div class="name"><label for="">TOEFL Practice questions by Javelin Stranford</label></div>
+                    <div class="type"><label for="">TOEFL</label></div>
+                    <div class="date"><label for="">24/3/2015</label></div>
+                    <div class="version"><label for="">2.0</label></div>
+                </div>
+                <hr class="break">
+                <div class="record">
+
+                    <div class="name"><label for="">TOEFL Practice questions by Javelin Stranford</label></div>
+                    <div class="type"><label for="">TOEFL</label></div>
+                    <div class="date"><label for="">24/3/2015</label></div>
+                    <div class="version"><label for="">2.0</label></div>
+                </div>
+                <hr class="break">
+                <div class="record">
+
+                    <div class="name"><label for="">TOEFL Practice questions by Javelin Stranford</label></div>
+                    <div class="type"><label for="">TOEFL</label></div>
+                    <div class="date"><label for="">24/3/2015</label></div>
+                    <div class="version"><label for="">2.0</label></div>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿@{
+    Layout = null;
+}
+@model Exam
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        .top {
+        }
+    </style>
+  
+</head>
+<body>
+    <!-- <div class="container"> -->
+    <div class="row top">
+        <div class="col-3 logo-container">
+            <img src="/images/logo.jpg" alt="" class="logo">
+        </div>
+        <div class="col-7 test-title"><h2 id="Exam" exam-id="@Model.ExamId">@Model.ExamName</h2></div>
+        <div class="col-2 profile-container"><img src="/images/avatar2.jpg" alt="" class="profile"></div>
+    </div>
+    <!-- </div>     -->
+
+    <div class="progress">
+        <div class="timer-container">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 50 50">
+                <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 37.039062 10.990234 A 1.0001 1.0001 0 0 0 36.265625 11.322266 L 26.183594 22.244141 A 3 3 0 0 0 25 22 A 3 3 0 0 0 22 25 A 3 3 0 0 0 25 28 A 3 3 0 0 0 25.5 27.958984 L 29.125 34.486328 A 1.0010694 1.0010694 0 1 0 30.875 33.513672 L 27.246094 26.984375 A 3 3 0 0 0 28 25 A 3 3 0 0 0 27.652344 23.599609 L 37.734375 12.677734 A 1.0001 1.0001 0 0 0 37.039062 10.990234 z"></path>
+            </svg>
+
+            <span>@Model.TimeAllocated</span>
+        </div>
+
+    </div>
+
+    <div class="questions">
+       @foreach(var quest in Model.Questions)
+            {
+                <div class="question">
+           
+            <div class="query">@quest.Query</div>
+            <hr>
+            <div class="answers">
+                @foreach(var ans in quest.Answers)
+                {
+                        <div class="option"><input type="radio" ans-id="@ans.AnswerId" name=@ans.Question.QuesionId id=@ans.AnswerId><label for=@ans.AnswerId>@ans.AnswerText</label></div>
+                }
+            </div>
+        </div>
+            }
+
+       @*  <div class="question">
+            <div class="query">2.What is the capital city of Sweden?</div>
+            <hr>
+            <div class="answers">
+                <div class="option"><input type="radio" name="" id=""><label for="">Tokyo</label></div>
+                <div class="option"><input type="radio" name="" id=""><label for="">Berlin</label></div>
+                <div class="option"><input type="radio" name="" id=""><label for="">Lisbon</label></div>
+                <div class="option"><input type="radio" name="" id=""><label for="">Stockholm</label></div>
+            </div>
+        </div> *@
+    </div>
+
+    <div class="buttons">
+        <button  class="btn-success submit">Submit Answers</button>
+        <button class="btn-danger cancel">Cancel</button>
+    </div>
+
+    <!-- <button class="submit">Submit Answers</button> -->
+</body>
+
+<script defer>
+    let totalScore = 0;
+    var submit=document.body.querySelector(".submit")
+    submit.addEventListener('click',evaluate)
+     function evaluate()
+    {
+     //   let totalScore = 0;
+        var questions = document.getElementsByClassName("question");
+        Array.from(questions).forEach(function (quest)
+        {
+
+            // console.log("83")
+            var checkedAnswer = quest.querySelector(".answers input:checked")
+            if (!checkedAnswer)
+                return;
+            else {
+                fetch("/User/checkAnswer/?id=" + checkedAnswer.getAttribute("ans-id"))
+                    .then((response) => response.json())
+                    .then(ans => {
+                        // console.log("91")
+                        if (ans)
+                           totalScore++;
+                    }).then(() => {
+                        console.log(totalScore)
+                        var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
+                        window.location.href = "/User/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+                    })
+            }
+        });
+        console.log(totalScore)
+        var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
+        // window.location.href = "/User/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+    }
+
+</script>
+
+
+</html>
