@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/css/index.css">
@@ -36,7 +36,7 @@
                 <path d="M 25 2 C 12.309295 2 2 12.309295 2 25 C 2 37.690705 12.309295 48 25 48 C 37.690705 48 48 37.690705 48 25 C 48 12.309295 37.690705 2 25 2 z M 25 4 C 36.609824 4 46 13.390176 46 25 C 46 36.609824 36.609824 46 25 46 C 13.390176 46 4 36.609824 4 25 C 4 13.390176 13.390176 4 25 4 z M 37.039062 10.990234 A 1.0001 1.0001 0 0 0 36.265625 11.322266 L 26.183594 22.244141 A 3 3 0 0 0 25 22 A 3 3 0 0 0 22 25 A 3 3 0 0 0 25 28 A 3 3 0 0 0 25.5 27.958984 L 29.125 34.486328 A 1.0010694 1.0010694 0 1 0 30.875 33.513672 L 27.246094 26.984375 A 3 3 0 0 0 28 25 A 3 3 0 0 0 27.652344 23.599609 L 37.734375 12.677734 A 1.0001 1.0001 0 0 0 37.039062 10.990234 z"></path>
             </svg>
 
-            <span>@Model.TimeAllocated</span>
+            <span id="timer">@Model.TimeAllocated</span>
         </div>
 
     </div>
@@ -70,17 +70,88 @@
     </div>
 
     <div class="buttons">
-        <button  class="btn-success submit">Submit Answers</button>
+        <button class="btn-success submit" data-toggle="modal" data-target="#confirmationModal">Submit Answers</button>
         <button class="btn-danger cancel">Cancel</button>
+    </div>
+
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Leaving Exam Room</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="conf">Dear Examinee you have some time left,Do you want to end the exam taking process?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back to Exam</button>
+                    <button type="button" class="btn btn-primary" id="confirmButton">Of Course I do</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- <button class="submit">Submit Answers</button> -->
 </body>
+</html>
+<script>
+    var startTime, endTime;
+    // console.log("HEREREEEEEEE ");
 
-<script defer>
+    document.getElementById('confirmButton').addEventListener('click', function () {
+        evaluate();       
+    });
+
+    document.addEventListener('DOMContentLoaded',function ()
+    {
+         startTime = new Date().getTime();
+        // console.log("HEREREEEEEEE ");
+         var examDuration = '@Model.TimeAllocated'; // Replace with the actual duration fetched from the database
+        // Calculate the end time by adding the exam duration to the current time
+        var durationParts = examDuration.split(":");
+        var durationHours = parseInt(durationParts[0]);
+        var durationMinutes = parseInt(durationParts[1]);
+        var durationSeconds = parseInt(durationParts[2]);
+         endTime = startTime + (durationHours * 60 * 60 * 1000) + (durationMinutes * 60 * 1000) + (durationSeconds * 1000);
+        // console.log("HEREREEEEEEE "+startTime + "     " + endTime);
+
+    })
+    setInterval(function () 
+    {
+        var remainingTime = endTime - new Date().getTime();
+
+        if (remainingTime <= 0) {
+            document.getElementById('timer').innerHTML = '00:00:00';
+            // Add any code you want to execute when the timer reaches 00:00:00
+            evaluate();
+            return;
+        }
+
+        // // Recalculate remaining time after each second
+        // remainingTime = endTime - new Date().getTime();
+
+        // Convert remaining time to hours, minutes, and seconds
+        var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.ceil((remainingTime % (1000 * 60)) / 1000);
+
+        // Format the time as HH:MM:SS
+        var formattedTime = ('0' + hours).slice(-2) + ':' + ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2);
+
+        // Update the timer display
+        document.getElementById('timer').innerHTML = formattedTime;
+
+
+
+    },1000)
     let totalScore = 0;
-    var submit=document.body.querySelector(".submit")
-    submit.addEventListener('click',evaluate)
+    // var submit=document.body.querySelector(".submit")
+    // submit.addEventListener('click',evaluate)
      function evaluate()
     {
      //   let totalScore = 0;
@@ -93,7 +164,7 @@
             if (!checkedAnswer)
                 return;
             else {
-                fetch("/User/checkAnswer/?id=" + checkedAnswer.getAttribute("ans-id"))
+                fetch("/Examinee/checkAnswer/?id=" + checkedAnswer.getAttribute("ans-id"))
                     .then((response) => response.json())
                     .then(ans => {
                         // console.log("91")
@@ -102,16 +173,15 @@
                     }).then(() => {
                         console.log(totalScore)
                         var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
-                        window.location.href = "/User/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+                        window.location.href = "/Examinee/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
                     })
             }
         });
-        console.log(totalScore)
+        // console.log(totalScore)
         var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
-        // window.location.href = "/User/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+        window.location.href = "/Examinee/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
     }
 
+
+
 </script>
-
-
-</html>

@@ -3600,11 +3600,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSystem\\ExamSystem.csproj",
+      "projectUniqueName": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\ExamSystem.csproj",
       "projectName": "ExamSystem",
-      "projectPath": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSystem\\ExamSystem.csproj",
+      "projectPath": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\ExamSystem.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSystem\\obj\\",
+      "outputPath": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

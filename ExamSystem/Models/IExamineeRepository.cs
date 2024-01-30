@@ -18,5 +18,6 @@ namespace ExamSystem.Models
         public List<string> GetSubjectNames();
         public List<Result> GetFilteredResults(string exam, string subject, string score, string date);
         public ResultDetail GetResultDetail(Guid resId);
+        public List<Exam> FilterExams(string name);
     }
 }

@@ -15,6 +15,6 @@ namespace ExamSystem.Models
         public int QuestionWeight { get; set; } 
         public int PassingMark {  get; set; } 
         public List<Question> Questions { get; set; }
-
+        
     } 
 }

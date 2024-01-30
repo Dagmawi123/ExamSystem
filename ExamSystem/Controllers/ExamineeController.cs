@@ -26,6 +26,7 @@ namespace ExamSystem.Controllers
 
 
         }
+        [HttpGet]
         public IActionResult User_Home()
         {
             //UserRepository ur = new UserRepository(examContext);
@@ -33,6 +34,19 @@ namespace ExamSystem.Controllers
 
             return View(exams);
         }
+        [HttpPost]
+        public IActionResult User_Home(string query) { 
+        List<Exam> exams=userRepository.FilterExams(query);
+            if (exams == null)
+            {
+                return View();
+            }
+            else {
+                return PartialView("_FilteredDataPartialView",exams);
+            }
+
+        }
+
 
         [HttpGet]
         public IActionResult Documents()

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aiR6enRFauEabvFYiQiCNaQaz3IqLoL8xP5nHQTdaX16bibSOeS1lAjzn9fimTDog59ADOX6Ltas0W2eZm04kw==",
+  "dgSpecHash": "+zZIekabdOK8e7NlZjS8iv9oZoW7xGTMX0GIBXNa7e4un2SHILdm4TSag0LLE964jkidsU5MwZpkQnznqIDClw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSystem\\ExamSystem.csproj",
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\ExamSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

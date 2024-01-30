@@ -175,7 +175,7 @@
             rows[i].addEventListener('click', function () {
 
                 var id = this.getAttribute('data-id');
-                fetch('/User/ResultDetail?id=' + id).then(function (response) {
+                fetch('/Examinee/ResultDetail?id=' + id).then(function (response) {
               
                     return response.json();
                 }).then(function (jsObj) {
@@ -223,7 +223,7 @@
             <p class="filter-exam-results-here-GSy">Filter Exam Results Here</p>
             <div class="auto-group-w6yk-PGh">
                 <div class="auto-group-y5wv-W6R" >
-               <form class="form-element" method="post" action="/User/Results" >
+               <form class="form-element" method="post" action="/Examinee/Results" >
                     <select name="ExamName" class="auto-group-pzrf-1Yy">
                         <option value="" selected hidden>Exam Name</option>                       
  @foreach(var name in ViewBag.ExamNames)

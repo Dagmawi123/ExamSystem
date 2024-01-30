@@ -8,7 +8,8 @@ namespace ExamSystem.Models
     public Guid SubjectId { get; set; }
 public string SubjectName { get; set; }
     public List<Exam> Exams { get; set; }
-        public List<Document> Documents { get; set; }
+public string Description { get; set; }
+public string ImageUrl { get; set; }
     }
 
 }

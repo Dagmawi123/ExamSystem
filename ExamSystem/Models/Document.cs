@@ -15,7 +15,8 @@ namespace ExamSystem.Models
         public float DocVersion { get; set; }
         [Required]
         public DateTime DateAdded { get; set; }
-
+        [Required]
+        public string DocPath { get; set; }
         
     }
 }

@@ -111,7 +111,10 @@ namespace ExamSystem.Models
             return rd;
             //return res;
         }
-
+        public List<Exam> FilterExams(string name) { 
+        List<Exam> exams = examContext.Exams.Where(e=>e.ExamName==name).ToList();
+            return exams;
+        }
 
 
 
