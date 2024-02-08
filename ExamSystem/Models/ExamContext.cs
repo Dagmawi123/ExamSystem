@@ -19,7 +19,7 @@ namespace ExamSystem.Models
         public DbSet<Question> Questions { get; set; }
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserType> UserTypes { get; set; }
+        //public DbSet<UserType> UserTypes { get; set; }
         public DbSet<Result> Results { get; set; }
 
 

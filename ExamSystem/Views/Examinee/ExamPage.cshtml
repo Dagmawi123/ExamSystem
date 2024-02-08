@@ -42,11 +42,13 @@
     </div>
 
     <div class="questions">
+        @{int x = 1;}
        @foreach(var quest in Model.Questions)
-            {
-                <div class="question">
+        {
+            
+            <div class="question">
            
-            <div class="query">@quest.Query</div>
+            <div class="query"><span id="Qno">@(x++).</span> @quest.Query</div>
             <hr>
             <div class="answers">
                 @foreach(var ans in quest.Answers)
@@ -111,7 +113,7 @@
     {
          startTime = new Date().getTime();
         // console.log("HEREREEEEEEE ");
-         var examDuration = '@Model.TimeAllocated'; // Replace with the actual duration fetched from the database
+         var examDuration = '@Model.TimeAllocated'+":00"; // Replace with the actual duration fetched from the database
         // Calculate the end time by adding the exam duration to the current time
         var durationParts = examDuration.split(":");
         var durationHours = parseInt(durationParts[0]);
@@ -149,37 +151,42 @@
 
 
     },1000)
-    let totalScore = 0;
+    // let totalScore = 0;
     // var submit=document.body.querySelector(".submit")
     // submit.addEventListener('click',evaluate)
-     function evaluate()
-    {
-     //   let totalScore = 0;
+    function evaluate() {
+        var totalScore = 0;
         var questions = document.getElementsByClassName("question");
-        Array.from(questions).forEach(function (quest)
-        {
+        var fetchPromises = [];
 
-            // console.log("83")
-            var checkedAnswer = quest.querySelector(".answers input:checked")
-            if (!checkedAnswer)
+        Array.from(questions).forEach((quest) => {
+            var checkedAnswer = quest.querySelector(".answers input:checked");
+
+            if (!checkedAnswer) {
                 return;
-            else {
-                fetch("/Examinee/checkAnswer/?id=" + checkedAnswer.getAttribute("ans-id"))
+            } else {
+                var fetchPromise = fetch("/Examinee/checkAnswer/?id=" + checkedAnswer.getAttribute("ans-id"))
                     .then((response) => response.json())
-                    .then(ans => {
-                        // console.log("91")
-                        if (ans)
-                           totalScore++;
-                    }).then(() => {
-                        console.log(totalScore)
-                        var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
-                        window.location.href = "/Examinee/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
-                    })
+                    .then((ans) => {
+                        console.log(ans);
+                        if (ans) {
+                            totalScore++;
+                        }
+                    });
+
+                fetchPromises.push(fetchPromise);
             }
         });
-        // console.log(totalScore)
-        var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
-        window.location.href = "/Examinee/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+
+        Promise.all(fetchPromises)
+            .then(() => {
+                //console.log("score equals ", totalScore);
+                 var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
+                 window.location.href = "/Examinee/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+            })
+            .catch((error) => {
+                console.error("Error occurred during API fetch:", error);
+            });
     }
 
 

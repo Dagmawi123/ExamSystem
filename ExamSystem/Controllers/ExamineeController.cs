@@ -2,7 +2,9 @@
 using ExamSystem.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
+using System.Text.Json.Nodes;
 //using Microsoft.AspNetCore.Mvc;
 //using System.Web.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -56,6 +58,15 @@ namespace ExamSystem.Controllers
             // Console.WriteLine(docs[0].Subject.SubjectName);
             return View(dvm);
         }
+
+        [HttpPost]
+        public IActionResult Documents(string DocName,string Subject,string Version) { 
+            List<Document> docs=userRepository.FilterDocs(DocName, Subject, Version);
+            DocumentViewModel dvm = userRepository.GetDocuments();
+            dvm.Documents = docs;
+            return View(dvm);
+        }
+
         [HttpGet]
         public IActionResult ExamPage(Guid id)
         {
@@ -110,12 +121,16 @@ namespace ExamSystem.Controllers
         public async Task<ActionResult> saveScore(int score,Guid eid) {
             try
             {
-                Guid id = new Guid("696384b7-0e20-4671-b28b-1f8676d892e6");
+                string id = "85FE0EE1-22CC-42D4-8816-9DE99438188C";
                 Result res = new Result();
-                res.Score = score;
+                res.RowScore = score;
                 res.Exam = examContext.Exams.Where(e => e.ExamId == eid).First();
-                res.User = examContext.Users.Where(e => e.UserId == id).First();
+                int numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == res.Exam.ExamId).Count();
+                res.outOf100=(float)res.RowScore / (float)numberOfQuestions;
+                res.outOf100 *= 100;
+                res.User =  examContext.Users.Where(e => e.Id == id).First();
                 res.DateTaken= DateTime.Now;
+
                 //UserRepository ur = new UserRepository(examContext);
                 userRepository.addScore(res);
 
@@ -131,6 +146,12 @@ namespace ExamSystem.Controllers
             ResultDetail res=userRepository.GetResultDetail(id);
             return Json(res);
         }
+        //public ActionResult ComputeScore(Guid id) {
+        //    float score = userRepository.ComputeScore(id);
+
+        //    var jsonObject = new { scr= score};
+        //    return Json(jsonObject);
+        //}
 
 
     }

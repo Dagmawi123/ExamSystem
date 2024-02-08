@@ -1,4 +1,5 @@
 using ExamSystem.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ExamContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection"));
 });
+//builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.AddIdentity<User, IdentityRole>().
+    AddEntityFrameworkStores<ExamContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<IExamineeRepository, ExamineeRepository>();
 var app = builder.Build();
 

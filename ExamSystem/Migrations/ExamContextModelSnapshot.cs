@@ -88,10 +88,6 @@ namespace ExamSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ExamImagePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ExamName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -145,14 +141,17 @@ namespace ExamSystem.Migrations
                     b.Property<DateTime>("DateTaken")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("ExamId")
+                    b.Property<Guid?>("ExamId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Score")
+                    b.Property<int>("RowScore")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<float>("outOf100")
+                        .HasColumnType("real");
 
                     b.HasKey("ResultId");
 
@@ -188,13 +187,20 @@ namespace ExamSystem.Migrations
 
             modelBuilder.Entity("ExamSystem.Models.User", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -204,33 +210,39 @@ namespace ExamSystem.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserTypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("UserTypeId");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("ExamSystem.Models.UserType", b =>
-                {
-                    b.Property<Guid>("UserTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("User_Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserTypeId");
-
-                    b.ToTable("UserTypes");
                 });
 
             modelBuilder.Entity("ExamSystem.Models.Answer", b =>
@@ -281,30 +293,15 @@ namespace ExamSystem.Migrations
                 {
                     b.HasOne("ExamSystem.Models.Exam", "Exam")
                         .WithMany()
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExamId");
 
                     b.HasOne("ExamSystem.Models.User", "User")
                         .WithMany("Results")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Exam");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ExamSystem.Models.User", b =>
-                {
-                    b.HasOne("ExamSystem.Models.UserType", "UserType")
-                        .WithMany("users")
-                        .HasForeignKey("UserTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserType");
                 });
 
             modelBuilder.Entity("ExamSystem.Models.Exam", b =>
@@ -325,11 +322,6 @@ namespace ExamSystem.Migrations
             modelBuilder.Entity("ExamSystem.Models.User", b =>
                 {
                     b.Navigation("Results");
-                });
-
-            modelBuilder.Entity("ExamSystem.Models.UserType", b =>
-                {
-                    b.Navigation("users");
                 });
 #pragma warning restore 612, 618
         }

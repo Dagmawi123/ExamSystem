@@ -97,6 +97,7 @@ C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Web.WebPages.Deployment.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Web.WebPages.Razor.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Web.WebPages.dll
+C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
@@ -117,6 +118,7 @@ C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Micros
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Mono.TextTemplating.dll
+C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Drawing.Common.dll

@@ -5,6 +5,274 @@
       "PackagePath": "staticwebassets\\ExamSystem.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\css\\adminlte.min.css",
+      "PackagePath": "staticwebassets\\asset\\css\\adminlte.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\css\\style.css",
+      "PackagePath": "staticwebassets\\asset\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\css\\all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\fontawesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\asset\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\1.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\2.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\3.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\4.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\5.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\6.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\avatar.png",
+      "PackagePath": "staticwebassets\\asset\\img\\avatar.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\login.png",
+      "PackagePath": "staticwebassets\\asset\\img\\login.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\logo.png",
+      "PackagePath": "staticwebassets\\asset\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\sent.png",
+      "PackagePath": "staticwebassets\\asset\\img\\sent.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user1-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user1-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user2-160x160.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user2-160x160.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user3-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user3-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user4-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user4-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user5-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user5-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user6-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user6-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user7-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user7-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\img\\user8-128x128.jpg",
+      "PackagePath": "staticwebassets\\asset\\img\\user8-128x128.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\jquery\\jquery.min.js",
+      "PackagePath": "staticwebassets\\asset\\jquery\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\js\\adminlte.js",
+      "PackagePath": "staticwebassets\\asset\\js\\adminlte.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\asset\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\js\\canvasjs.min.js",
+      "PackagePath": "staticwebassets\\asset\\js\\canvasjs.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\js\\chart.js",
+      "PackagePath": "staticwebassets\\asset\\js\\chart.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-bs4\\css\\dataTables.bootstrap4.css",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-bs4\\css\\dataTables.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-bs4\\css\\dataTables.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-bs4\\css\\dataTables.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-bs4\\js\\dataTables.bootstrap4.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-bs4\\js\\dataTables.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-bs4\\js\\dataTables.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-bs4\\js\\dataTables.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\css\\buttons.bootstrap4.css",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\css\\buttons.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\css\\buttons.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\css\\buttons.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.bootstrap4.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.colVis.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.colVis.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.colVis.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.colVis.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.flash.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.flash.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.flash.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.flash.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.html5.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.html5.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.html5.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.html5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.print.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.print.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\buttons.print.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\buttons.print.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\dataTables.buttons.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\dataTables.buttons.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-buttons\\js\\dataTables.buttons.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-buttons\\js\\dataTables.buttons.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-responsive\\css\\responsive.bootstrap4.css",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-responsive\\css\\responsive.bootstrap4.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-responsive\\css\\responsive.bootstrap4.min.css",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-responsive\\css\\responsive.bootstrap4.min.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-responsive\\js\\dataTables.responsive.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-responsive\\js\\dataTables.responsive.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-responsive\\js\\dataTables.responsive.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-responsive\\js\\dataTables.responsive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-responsive\\js\\responsive.bootstrap4.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-responsive\\js\\responsive.bootstrap4.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables-responsive\\js\\responsive.bootstrap4.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables-responsive\\js\\responsive.bootstrap4.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables\\jquery.dataTables.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables\\jquery.dataTables.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\asset\\tables\\datatables\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\asset\\tables\\datatables\\jquery.dataTables.min.js"
+    },
+    {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },
@@ -15,6 +283,26 @@
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf",
+      "PackagePath": "staticwebassets\\docs\\AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\AUT_CS461Y23 - Chapter 5 - Local Area Network Technology.pdf",
+      "PackagePath": "staticwebassets\\docs\\AUT_CS461Y23 - Chapter 5 - Local Area Network Technology.pdf"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\photo_2023-10-09_02-49-00.jpg",
+      "PackagePath": "staticwebassets\\docs\\photo_2023-10-09_02-49-00.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\photo_2023-10-09_02-49-14.jpg",
+      "PackagePath": "staticwebassets\\docs\\photo_2023-10-09_02-49-14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\photo_2023-10-09_02-49-18.jpg",
+      "PackagePath": "staticwebassets\\docs\\photo_2023-10-09_02-49-18.jpg"
     },
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\favicon.ico",

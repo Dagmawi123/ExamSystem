@@ -8,27 +8,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <div class="row row-main">
-        <div class="col-2 left ">
+        <div class="col-2 left sidebar ">
             <div class="leftmenu">
                 <img src="/images/logo.jpg" alt="">
-                <ul>
-                    <li>All Exams</li>
-                    <li>My Results</li>
-                    <li>Documents</li>
+                @* <nav class="navbar navbar-expand "> *@
+                <ul class="menus">
+                    <li class="nav-item" onclick="window.location.href='/Examinee'">Explore Exams</li>
+                    <li class="nav-item" onclick="window.location.href='/Examinee/Results'">RESULTS</li>
+                    <li class="nav-item active" onclick="window.location.href='/Examinee/Documents'">References</li>
                 </ul>
+                @* </nav> *@
+                <footer class="socials">
+
+                    <ul class="socials-list">
+                        <li><i class="fa fa-facebook"></i></li>
+                        <li><i class="fa fa-github"></i></li>
+                        <li><i class="fa fa-linkedin"></i></li>
+                        <li><i class="fa fa-youtube"></i></li>
+
+                    </ul>
+
+                </footer>
+
             </div>
         </div>
         <div class="col-10 right">
 
             <div class="uppermenu">
-                <img src="/images/avatar2.jpg" alt="">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Dashboard</a>
+                            <a class="dropdown-item" href="#">Edit Profile</a>
+                            <a class="dropdown-item" href="#">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+
+
             </div>
             <!-- <div class="search">
                 <input type="text" placeholder="Search">
@@ -37,15 +72,16 @@
             <div class="header">
                 <h3>Find all the documents uploaded here</h3>
             </div>
+            <form class="form-element" method="post">
             <div class="filter">
                 <!-- <div class="nameSearch"><input type="text" name="" id=""></div>     -->
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input name" placeholder="Name">
+                    <input name="DocName" type="text" class="search-input name" placeholder="Name">
 
                 </div>
                 <div class="select-wrapper">
-                    <select class="custom-select type">
+                    <select name="Subject" class="custom-select type">
                         <option value="Type" hidden selected>Type</option>
                         @foreach(var subType in Model.Subjects)
                         {
@@ -56,7 +92,7 @@
                 </div>
 
                 <div class="select-wrapper">
-                    <select class="custom-select version">
+                    <select name="Version" class="custom-select version">
                         <option value="Version" hidden selected>Version</option>
                         @foreach (var Doc in Model.Documents)
                         {
@@ -67,8 +103,9 @@
                     <!-- <i class="fas fa-caret-down select-icon"></i> -->
                 </div>
 
-                <button class="btn-primary">Filter</button>
+                <button id="filter" class="btn-primary">Filter</button>
             </div>
+            </form>
 
             <div class="titles">
                 <div class="name-container"><label for="">Document Name</label></div>
@@ -86,41 +123,17 @@
                 
                     <div class="record">
 
-                        <div class="name"><label for="">@doc.DocName</label></div>
+                        <div class="name"><a href="/docs/@doc.DocPath" target="_blank"><label for="">@doc.DocName.Substring(0,@doc.DocName.LastIndexOf("."))</label></a></div>
                         <div class="type"><label for="">@doc.Subject.SubjectName</label></div>
                         <div class="date"><label for="">@doc.DateAdded.ToString("dd-mm-yyyy")</label></div>
                         <div class="version"><label for="">@doc.DocVersion</label></div>
                     </div>
                 <hr class="break">
                 }
-
-               
-                
-                @* <div class="record">
-
-                    <div class="name"><label for="">TOEFL Practice questions by Javelin Stranford</label></div>
-                    <div class="type"><label for="">TOEFL</label></div>
-                    <div class="date"><label for="">24/3/2015</label></div>
-                    <div class="version"><label for="">2.0</label></div>
+                               
                 </div>
-                <hr class="break">
-                <div class="record">
-
-                    <div class="name"><label for="">TOEFL Practice questions by Javelin Stranford</label></div>
-                    <div class="type"><label for="">TOEFL</label></div>
-                    <div class="date"><label for="">24/3/2015</label></div>
-                    <div class="version"><label for="">2.0</label></div>
-                </div>
-                <hr class="break">
-                <div class="record">
-
-                    <div class="name"><label for="">TOEFL Practice questions by Javelin Stranford</label></div>
-                    <div class="type"><label for="">TOEFL</label></div>
-                    <div class="date"><label for="">24/3/2015</label></div>
-                    <div class="version"><label for="">2.0</label></div>
-                </div> *@
-            </div>
         </div>
     </div>
 </body>
 </html>
+<script src="/js/site.js"></script>

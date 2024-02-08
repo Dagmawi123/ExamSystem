@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ExamSystem.Models.User
+@{
+    ViewData["Title"] = "EditUser";
+}
+<section class="content-header">
+    <h1>
+    Admin
+    </h1>
+</section>
+<!-- Main content -->
+<section class="content container-fluid">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">Update User</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form class="form-horizontal" method="post" >
+       
+	<div class="border p-3 mt-4">
+		
+		<div class="mb-3">
+			<label asp-for="Id"></label>
+			<input asp-for="Id" class="form-control" />
+			<span asp-validation-for="Id" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="UserName"></label>
+			<input asp-for="UserName" class="form-control" />
+			<span asp-validation-for="UserName" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="FirstName"></label>
+			<input asp-for="FirstName" class="form-control" />
+			<span asp-validation-for="FirstName" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="LastName"></label>
+			<input asp-for="LastName" class="form-control" />
+			<span asp-validation-for="LastName" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Email"></label>
+			<input asp-for="Email" class="form-control" />
+			<span asp-validation-for="Email" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="PasswordHash"></label>
+			<input asp-for="PasswordHash" class="form-control" />
+			<span asp-validation-for="PasswordHash" class="text-danger"></span>
+		</div>
+
+        <!-- /.box-body -->
+        <div class="box-footer">
+        <button type="submit" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-info pull-right">Update</button>
+        </div>
+        <!-- /.box-footer -->
+    </form>
+    </div>
+    <!-- /.box -->
+</section>

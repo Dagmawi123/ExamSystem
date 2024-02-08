@@ -16,6 +16,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Account/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Admin/CreateAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQ3JlYXRlQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Admin/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Admin/RemoveUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVtb3ZlVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Examinee/AddExam.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWluZWVcQWRkRXhhbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,6 +62,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Examinee/_FilteredDataPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWluZWVcX0ZpbHRlcmVkRGF0YVBhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Examiner/Exam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWluZXJcRXhhbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Home/Index.cshtml]

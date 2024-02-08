@@ -1,0 +1,46 @@
+﻿
+@model ExamSystem.Models.User
+@{
+	ViewData["Title"] = "Remove User";
+	
+}
+
+
+
+
+<form method="post" asp-action="RemoveAccount">
+	<div class="border p-3 mt-4">
+		<div class="row pb-2">
+			<h2 class="text-primary">Remove User</h2>
+			<br />
+		</div>
+		<div class="mb-3">
+			<label asp-for="Id"></label>
+			<input disabled asp-for="Id" class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="UserName"></label>
+			<input disabled asp-for="UserName" class="form-control" />
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="Email"></label>
+			<input disabled asp-for="Email" class="form-control" />
+		</div>
+
+		<input id="id" type="hidden" name="id" asp-for=Id>
+		<input  id="fname" type="hidden" name="firstname" asp-for=FirstName>
+		
+		<input  id="lname" type="hidden" name="lastname" asp-for=LastName>
+	
+		<input  id="username" type="hidden" name="username" asp-for=UserName>
+	
+		<input  id="email" type="hidden" name="email" asp-for=Email>
+		
+		<input id="password" type="hidden" name="password" asp-for=PasswordHash>
+
+		<button type="submit" class="btn btn-primary" style="width:150px;">Delete</button>
+		<a asp-controller="Admin" asp-action="Index" class="btn btn-secondary" style="width:200px;">Back to List</a>
+	</div>
+</form>
