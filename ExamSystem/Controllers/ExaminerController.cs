@@ -10,6 +10,8 @@ using System.Text.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
+using ExamSystem.Models.ViewModels;
+using Microsoft.AspNetCore.Hosting;
 //using System.Web.Helpers;
 //using ExamSystem.Models;
 //using ExamSystem.Models.ViewModels;
@@ -21,9 +23,11 @@ namespace ExamSystem.Controllers
     public class ExaminerController : Controller
     {
         private readonly ExamContext examContext;
-        public ExaminerController(ExamContext exc)
+       private readonly IWebHostEnvironment webHostEnvironment;
+        public ExaminerController(IWebHostEnvironment webHostEnvironment, ExamContext context)
         {
-            examContext = exc;
+            this.webHostEnvironment = webHostEnvironment;
+            examContext = context;
         }
 
 
@@ -196,6 +200,99 @@ namespace ExamSystem.Controllers
 
 
         }
+
+        [HttpGet]
+        public IActionResult Reference()
+        {
+            ViewBag.Subjects = examContext.Subjects.Select(e => e.SubjectName).ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Reference(ReferenceViewModel reference)
+        {
+            string FileName = "";
+            string uniqueCFileName = "";
+            string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "docs");
+
+            if (reference.DocPath != null)
+            {
+                 FileName = Guid.NewGuid().ToString() + "_" + reference.DocPath.FileName;
+                uniqueCFileName = Path.Combine(uploadFolder, FileName);
+                reference.DocPath.CopyTo(new FileStream(uniqueCFileName, FileMode.Create));
+            }
+        //    if (ModelState.IsValid)
+          //  {
+                try
+                {
+                    Subject sbje = examContext.Subjects.Where(s => s.SubjectName == reference.Subject).First();
+                    Models.Document doc = new Models.Document()
+                    {
+                        DateAdded = DateTime.Now,
+                        DocName = reference.DocName,
+                        Subject = sbje,
+                        DocVersion = reference.DocVersion,
+                        DocPath = "/docs/" + FileName
+
+                    };
+                    examContext.Documents.Add(doc);
+                    await examContext.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong{ex.Message}");
+                    // throw;
+                }
+            //}
+            ModelState.AddModelError(string.Empty, $"Something went wrong invalid model");
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult Subject()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Subject(SubjectViewModel subject)
+        {
+            string FileName = "";
+            string uniqueCFileName = "";
+            string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "docs");
+
+            if (subject.ImageUrl != null)
+            {
+                 FileName = Guid.NewGuid().ToString() + "_" + subject.ImageUrl.FileName;
+                uniqueCFileName = Path.Combine(uploadFolder, FileName);
+                subject.ImageUrl.CopyTo(new FileStream(uniqueCFileName, FileMode.Create));
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Subject sbj = new Subject() { 
+                    SubjectName = subject.SubjectName,
+                    Description = subject.Description,
+                    ImageUrl="/docs/"+ FileName
+                    };
+                    examContext.Add(sbj);
+                    await examContext.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError(string.Empty, $"Something went wrong{ex.Message}");
+                    // throw;
+                }
+            }
+            ModelState.AddModelError(string.Empty, $"Something went wrong invalid model");
+            return View();
+        }
+
+
+
     }
 }
 

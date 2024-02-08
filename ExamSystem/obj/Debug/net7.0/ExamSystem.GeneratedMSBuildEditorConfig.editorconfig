@@ -68,6 +68,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWluZXJcRXhhbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Examiner/Reference.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWluZXJcUmVmZXJlbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Examiner/Subject.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbWluZXJcU3ViamVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/user/source/repos/ExamSystem/ExamSys/ExamSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

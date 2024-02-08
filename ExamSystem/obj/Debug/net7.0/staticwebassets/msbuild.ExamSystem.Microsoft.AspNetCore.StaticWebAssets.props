@@ -1120,6 +1120,86 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\css\site.css))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\30c57792-d4d9-40bc-bb71-fab5f3f51915_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/30c57792-d4d9-40bc-bb71-fab5f3f51915_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\30c57792-d4d9-40bc-bb71-fab5f3f51915_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\36a174a8-a249-4a2d-84d9-7f108f301598_blog32.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/36a174a8-a249-4a2d-84d9-7f108f301598_blog32.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\36a174a8-a249-4a2d-84d9-7f108f301598_blog32.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\5670a481-9900-431c-af33-09dd35040afb_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/5670a481-9900-431c-af33-09dd35040afb_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\5670a481-9900-431c-af33-09dd35040afb_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\57691b11-b6b9-412f-8a59-bc943a571351_blog76.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/57691b11-b6b9-412f-8a59-bc943a571351_blog76.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\57691b11-b6b9-412f-8a59-bc943a571351_blog76.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\a0051ff2-ec16-4fbb-b567-e53e93170451_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/a0051ff2-ec16-4fbb-b567-e53e93170451_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\a0051ff2-ec16-4fbb-b567-e53e93170451_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf))">
       <SourceType>Package</SourceType>
       <SourceId>ExamSystem</SourceId>
@@ -1151,6 +1231,54 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\AUT_CS461Y23 - Chapter 5 - Local Area Network Technology.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\c362d18b-5c5d-403a-9eda-87a42a162f63_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/c362d18b-5c5d-403a-9eda-87a42a162f63_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\c362d18b-5c5d-403a-9eda-87a42a162f63_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\cf111d01-d6da-4d02-aaf9-ca7b9b6a6690_AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/cf111d01-d6da-4d02-aaf9-ca7b9b6a6690_AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\cf111d01-d6da-4d02-aaf9-ca7b9b6a6690_AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\ff13e842-482c-42b5-942f-9ac5ee46b182_AUT_CS461Y23 - Chapter 3 - Network Layer Addressing.pdf))">
+      <SourceType>Package</SourceType>
+      <SourceId>ExamSystem</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ExamSystem</BasePath>
+      <RelativePath>docs/ff13e842-482c-42b5-942f-9ac5ee46b182_AUT_CS461Y23 - Chapter 3 - Network Layer Addressing.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\ff13e842-482c-42b5-942f-9ac5ee46b182_AUT_CS461Y23 - Chapter 3 - Network Layer Addressing.pdf))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\docs\photo_2023-10-09_02-49-00.jpg))">
       <SourceType>Package</SourceType>
