@@ -8,44 +8,46 @@
 
 <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
 
-
 <div class="item1">
     <a asp-controller="Home" asp-action="Index"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
-    <div class="maed-logo">
-        <a asp-controller="Home" asp-action="Index"><img src="~/pics/Maed_logo1-removebg.png" alt="" /></a>
+    <div class="SlackLogo">
+        <a asp-controller="Home" asp-action="Index"><img src="~/images/logo.jpg" alt="" /></a>
     </div>
 </div>
 
 <div class="text-danger" asp-validation-summary="All"></div>
 
 <div class="containers555">
-
-
     <div class="item13">
-
         <form asp-action="Login" method="post" class="i1">
-
-           
             <div class="text-danger" asp-validation-summary="All"></div>
             <label asp-for="Email"></label>
             <input asp-for="Email" class="form-control" />
 
             <label asp-for="Password"></label>
             <input id="password" type="password" asp-for="Password" class="form-control" />
-
             <span><i id="toggler" class="far fa-eye"></i></span>
-            <sec class="foot">
-                <button type="submit" name="signin_user" class="signin">Log In</button>
-                
-                <p class="new"><a asp-controller="Account" asp-action="Create"> <span class="blue"> Click Here </span> to Create an Account</a></p>
-            </sec>
+            <div class="foot">
+                <span><i id="toggler" class="far fa-eye"></i></span>
+                <div class="foot-inner">
+                    <sec class="foot-center">
+                        <button type="submit" name="signin_user" class="signin">Log In</button>
+                       
+                    </sec>
+                </div>
+            </div>
+            <div class="foot">
+                <span><i id="toggler" class="far fa-eye"></i></span>
+                <div class="foot-inner">
+                    <div class="centered-content">
+                        <p class="new">Sign UP? <a asp-controller="Account" asp-action="Create"><span class="blue">Create New Account</span></a></p>
+                    </div>
+                </div>
+            </div>
         </form>
-
-
-
     </div>
-
 </div>
+
 <script>
     const togglePassword = document.getElementById('toggler');
     const password = document.getElementById('password');

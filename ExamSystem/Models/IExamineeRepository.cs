@@ -10,7 +10,7 @@ namespace ExamSystem.Models
     {
         public DocumentViewModel GetDocuments();
         public Exam GetExam(Guid id);
-        public List<Result> GetResults();
+        public List<Result> GetResults(User usr);
         public List<Exam> GetExams();
         public Exam GetExamDetail(Guid id);
         public void addScore(Result res);

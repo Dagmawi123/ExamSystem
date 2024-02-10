@@ -25,11 +25,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
 
@@ -46,7 +48,7 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Examinee}/{action=User_Home}");
+    pattern: "{controller=Account}/{action=Login}");
         
 });
 app.Run();

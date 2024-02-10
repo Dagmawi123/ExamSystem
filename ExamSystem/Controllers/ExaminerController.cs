@@ -205,6 +205,7 @@ namespace ExamSystem.Controllers
         public IActionResult Reference()
         {
             ViewBag.Subjects = examContext.Subjects.Select(e => e.SubjectName).ToList();
+            ViewBag.Docs = examContext.Documents.Include(d=>d.Subject).ToList();
             return View();
         }
 
@@ -291,8 +292,61 @@ namespace ExamSystem.Controllers
             return View();
         }
 
+        public async Task<IActionResult> DeleteExam(Guid id)
+        {
+            Exam examToDelete=examContext.Exams.Include(e => e.Questions)
+                .ThenInclude(q => q.Answers)
+            .First(e => e.ExamId == id); 
+           
+         
+                if (examToDelete != null)
+                {
+
+                    // Delete the associated answers for each question
+                    foreach (Question question in examToDelete.Questions)
+                    {
+                        examContext.Answers.RemoveRange(question.Answers);
+                    }
+
+                    // Delete the questions associated with the exam
+                    examContext.Questions.RemoveRange(examToDelete.Questions);
+
+                    // Delete the exam entity
+                    examContext.Exams.Remove(examToDelete);
+
+                    // Save changes to the database
+                  await  examContext.SaveChangesAsync();
+                }
+            return RedirectToAction("Index");
+        }
 
 
+        [HttpGet]
+        public IActionResult Overview()
+        {
+
+            //fro the pass and fail from result table through exam id relation
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Result()
+        {
+
+
+            return View();
+        }
+
+        public async Task<ActionResult> DeleteDoc(Guid id)
+        {
+            Models.Document doc = await examContext.Documents.FindAsync(id);
+            if (doc != null)
+            {
+                examContext.Documents.Remove(doc);
+                await examContext.SaveChangesAsync();
+            }
+            return RedirectToAction("Reference");
+
+        }
     }
 }
 

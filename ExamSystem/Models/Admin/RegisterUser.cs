@@ -23,6 +23,8 @@ namespace ExamSystem.Models.Admin
         [Compare("Password", ErrorMessage = "dont match")]
         public string ConfirmPassword { get; set; }
 
+        [Required]
+        public string Role { get; set; }
     }
 }
 

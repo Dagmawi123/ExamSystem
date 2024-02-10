@@ -58,13 +58,13 @@ namespace ExamSystem.Controllers.Admin
 
                             if (!roles)
                             {
-                                // Redirect to the admin page
-                                return RedirectToAction("Index", "Admin");
+                                // Redirect to the teacher page
+                                return RedirectToAction("Index", "Examiner");
                             }
                             else
                             {
                                 // Redirect to the user's dashboard or a default page
-                                return RedirectToAction("Index", "Home");
+                                return RedirectToAction("User_Home", "Examinee");
                             }
                         }
 
@@ -78,7 +78,7 @@ namespace ExamSystem.Controllers.Admin
             public async Task<IActionResult> Logout()
             {
                 await _signInManager.SignOutAsync();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Login", "Account");
             }
 
             [HttpGet]
@@ -108,7 +108,7 @@ namespace ExamSystem.Controllers.Admin
 
                     if (result.Succeeded)
                     {
-                        string roleName = "User";
+                        string roleName = user.Role;
 
                         // Check if the role exists
                         var roleExists = await _roleManager.RoleExistsAsync(roleName);
@@ -129,8 +129,11 @@ namespace ExamSystem.Controllers.Admin
                         await _userManager.AddToRoleAsync(appUser, roleName);
 
                         await _signInManager.RefreshSignInAsync(appUser);
-                        return RedirectToAction("Index", "Home");
-                    }
+                    if(roleName=="User")
+                        return RedirectToAction("User_Home", "Examinee");
+                    else
+                        return RedirectToAction("Index", "Examiner");
+                }
                     else
                     {
                         foreach (IdentityError error in result.Errors)

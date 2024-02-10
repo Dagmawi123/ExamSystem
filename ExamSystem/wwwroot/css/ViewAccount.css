@@ -1,0 +1,149 @@
+﻿/* ViewAccount.css */
+
+/* Wrapper */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Title */
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .title h2 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .title button {
+        padding: 10px 20px;
+        background-color: royalblue;
+        color: #ffffff;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .title button:hover {
+            background-color: #1d5bbf;
+        }
+
+/* Main Form */
+.mainform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+@media (max-width: 600px) {
+    .mainform {
+        width: 90%;
+    }
+}
+
+/* Input Fields */
+.names {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+    .names label {
+        font-weight: bold;
+        color: #555555;
+        margin-bottom: 5px;
+    }
+
+    .names input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #dddddd;
+        transition: border-color 0.3s ease;
+    }
+
+        .names input:focus {
+            border-color: royalblue;
+        }
+
+/* Validation Summary */
+.text-danger {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Account Actions */
+.account-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .account-action button {
+        padding: 10px 20px;
+        background-color: royalblue;
+        color: #ffffff;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .account-action button:hover {
+            background-color: #1d5bbf;
+        }
+
+    .account-action a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+
+    .account-action .material-symbols-outlined {
+        margin-right: 5px;
+    }
+
+/* Confirmation Box */
+.confirmation-box {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .confirmation-box h3 {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .confirmation-box button {
+        padding: 10px 20px;
+        background-color: royalblue;
+        color: #ffffff;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-right: 10px;
+    }
+
+        .confirmation-box button.cancel {
+            background-color: #cccccc;
+        }
+
+        .confirmation-box button:hover {
+            background-color: #1d5bbf;
+        }

@@ -1,4 +1,5 @@
 ﻿using ExamSystem.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -9,16 +10,18 @@ using System.Web.WebPages;
 
 namespace ExamSystem.Models
 {
-    [Route("api/[controller]")]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[ApiController]
+
     public class ExamineeRepository : IExamineeRepository
     {
-
+        private readonly UserManager<User> usrMgr;
         private readonly ExamContext examContext;
 
-        public ExamineeRepository(ExamContext examContext)
+        public ExamineeRepository(ExamContext examContext, UserManager<User> usrMgr)
         {
             this.examContext = examContext;
+            this.usrMgr = usrMgr;
             //this.webHostEnvironment = webHostEnvironment;
             //this.productRepository = productRepository;
 
@@ -33,15 +36,16 @@ namespace ExamSystem.Models
         }
 
         public Exam GetExam(Guid id) {
-            Exam ?evm = new Exam();
+            Exam? evm = new Exam();
             //evm = examContext.Exams.Include(e => e.Questions.Select(q => q.Answers)).Where(e => e.ExamId == id).FirstOrDefault();
             evm = examContext.Exams.Include(e => e.Questions).ThenInclude(q => q.Answers).Where(e => e.ExamId == id).FirstOrDefault();
             //evm.Questions=examContext.Questions.Include(e=>e.Answers).Where(e=>e.)
             return evm;
         }
-        public List<Result> GetResults()
-        { string id = "85FE0EE1-22CC-42D4-8816-9DE99438188C";
-            List<Result> rs = examContext.Results.Include(e => e.User).Include(e => e.Exam).Where(r => r.User.Id == id).ToList();
+        public List<Result> GetResults(User usr)
+        { //string id = "85FE0EE1-22CC-42D4-8816-9DE99438188C";
+            //User user = await usrMgr.GetUserAsync();
+            List<Result> rs = examContext.Results.Include(e => e.User).Include(e => e.Exam).Where(r => r.User==usr).ToList();
             //var userResults = examContext.Results.Include(e=>e.User).Where(r => r.User.UserId == id).Include(e=>e.Exam).ToList();
             Console.WriteLine(rs.Count);
             return rs;
@@ -114,18 +118,20 @@ namespace ExamSystem.Models
             //return res;
         }
         public List<Exam> FilterExams(string name) { 
-        List<Exam> exams = examContext.Exams.Where(e=>e.ExamName==name).ToList();
+        List<Exam> exams = examContext.Exams.Where(e=>e.ExamName.Contains(name)).ToList();
             return exams;
         }
 
-        public List<Document> FilterDocs(string DocName, string Subject, string version) {
+        public List<Document> FilterDocs(string DocName, string Subject, string version)
+        {
             List<Document> docs = examContext.Documents.Include(e => e.Subject)
-                .Where(e => (DocName == null || e.DocName.Contains(DocName)) && 
-                (Subject == null || e.Subject.SubjectName == Subject) && 
-                (version == null||e.DocVersion==version.AsInt())).ToList();
+                .Where(e => (DocName == null || e.DocName.Contains(DocName)) &&
+                            (Subject == null || e.Subject.SubjectName == Subject) &&
+                            (version == null || e.DocVersion.ToString() == version))
+                .ToList();
 
-            return docs;
-           }
+                return docs;
+        }
 
 
         //public float ComputeScore(Guid id) {
@@ -150,36 +156,36 @@ namespace ExamSystem.Models
 
 
 
-        // GET: api/<UserRepository>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        //// GET: api/<UserRepository>
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
 
-        // GET api/<UserRepository>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //// GET api/<UserRepository>/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
-        // POST api/<UserRepository>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        //// POST api/<UserRepository>
+        //[HttpPost]
+        //public void Post([FromBody] string value)
+        //{
+        //}
 
-        // PUT api/<UserRepository>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        //// PUT api/<UserRepository>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
+        //{
+        //}
 
-        // DELETE api/<UserRepository>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<UserRepository>/5
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

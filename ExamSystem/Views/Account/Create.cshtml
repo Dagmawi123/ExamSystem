@@ -1,6 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@{
+    Layout = null;
+}
 @model ExamSystem.Models.Admin.RegisterUser
 @{
     ViewData["Title"] = "Create Account";
@@ -8,77 +8,74 @@
 
 <link rel="stylesheet" href="~/css/signup.css" asp-append-version="true" />
 
-    <div class="wrapper">
-        <div class="item1">
-            <a asp-controller="Home" asp-action="Index"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
-        </div>
-        <div class="item2"></div>
+<div class="wrapper">
+    <div class="item1">
+        <a asp-controller="Home" asp-action="Index"><i class="fa-sharp fa-solid fa-arrow-left"></i></a>
+    </div>
+    <div class="item2"></div>
 
-        
+    <div class="item4">
+        <form method="post" asp-controller="Account" asp-action="CreateUser">
+            <section class="head">
+                <h4>Create Account</h4>
+                <div class="icon-login">
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <p>
 
-        <div class="item4">
-        <form method="post" asp-action="CreateUser">
-                <section class="head">
-                    <h4>CreateAccount</h4>
-                    <div class="icon-login">
-                        <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="icon"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <p>
-                       
-                    </p>
-                </section>
+                </p>
+            </section>
             <div class="text-danger" asp-validation-summary="All"></div>
             <div class="form-group">
                 <label for="FirstName">First Name:</label>
                 <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName" />
-
             </div>
 
             <div class="form-group">
                 <label for="LastName">Last Name:</label>
                 <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName" />
-
             </div>
 
             <div class="form-group">
                 <label for="Username">Username:</label>
                 <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" />
-
             </div>
 
             <div class="form-group">
                 <label for="Email">Email:</label>
                 <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" />
-
             </div>
 
             <div class="form-group">
                 <label for="Password">Password:</label>
                 <input type="password" class="form-control" id="Password" name="Password" />
-
             </div>
 
             <div class="form-group">
                 <label for="ConfirmPassword">Confirm Password:</label>
                 <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" />
-
             </div>
 
-                
-                    <section class="subButton">
-                        <button type="submit" class="signup" name="reg_user">Sign Up</button>
-                    </section>
-                    </form>
-                </div>
-           
-        </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select class="form-control" id="role" name="Role" required>
+                    <option value="User">User</option>
+                   <option value="Teacher">Teacher</option>
+                </select>
+            </div>
 
-        <div class="item5">
-            
-            <button class="signin"><a asp-action="Login">Sign In?</a></button>
-        </div>
-
+            <section class="subButton">
+                <button type="submit" class="signup" name="reg_user">Sign Up</button>
+            </section>
+        </form>
     </div>
 
+    <div class="item5">
+        <button class="signin">
+            <a asp-action="Login">Sign In?</a>
+        </button>
+    </div>
+
+</div>

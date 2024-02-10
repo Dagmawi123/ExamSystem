@@ -1,0 +1,63 @@
+﻿
+@model User
+@{
+    ViewData["Title"] = "ViewAccount";
+}
+<link rel="stylesheet" href="~/css/ViewAccount.css" />
+<h1>ViewAccount</h1>
+<div class="main">
+
+   
+    <form action="UpdateAccount" method="post">
+
+        <div class="title">
+            <h2>Profile</h2>
+            <button type="submit" name="save">Save</button>
+        </div>
+
+        <div class="mainform">
+            <input  type="hidden" asp-for=Id class="form-control mb-2" />
+            
+            <div class="names">
+                <label for="">First Name</label>
+                <input  id="fname" type="text" name="firstname" asp-for=FirstName >
+                <label for="">Last Name</label>
+                <input  id="lname" type="text" name="lastname" asp-for=LastName >
+                <label for="">User Name</label>
+                <input  id="username" type="text" name="username" asp-for=UserName >
+                <label for="">Email</label>
+                <input  id="email" type="email" name="email" asp-for=Email>
+                <label for="">password</label>
+                <input  id="password" type="text" name="password" asp-for=PasswordHash>
+               
+            </div>
+            <div class="text-danger" asp-validation-summary="All"></div>
+            <div class="account-action">
+                
+                <button onclick="showConfirmationBox(event)">Delete Account</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="confirmation-box" id="confirmationBox">
+        <h3>Do you want to delete ?</h3>
+        <button><a asp-controller="Account" asp-action="DeleteAccount" asp-route-id="@Model.Id">Yes, Delete</a></button>
+        <button class="cancel" onclick="cancelDelete()">Cancel</button>
+    </div>
+
+</div>
+<script>
+    function showConfirmationBox(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Display the confirmation box
+        document.getElementById('confirmationBox').style.display = 'block';
+    }
+
+    function cancelDelete() {
+        // Close the confirmation box without performing deletion
+        document.getElementById('confirmationBox').style.display = 'none';
+    }
+</script>
+

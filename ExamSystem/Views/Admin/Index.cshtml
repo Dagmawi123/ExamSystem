@@ -1,0 +1,145 @@
+﻿@*@model IEnumerable<User>*@
+@{
+	ViewData["Title"] = "Index";
+	
+}
+
+
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary"> Admin's List</h2>
+		</div>
+		<div class="col-6">
+			<a asp-controller="Admin" asp-action="CreateAdmin" class="btn btn-primary">Add new Admin</a>
+		</div>
+
+	</div>
+
+</div>
+<table class="table table-bordered table-striped" style="width:100%;">
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			First Name
+		</td>
+		<td>
+			Last Name
+		</td>
+		<td>
+			UserName
+		</td>
+		<td>
+			Email
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	@foreach (var obj in (IEnumerable<User>)ViewData["Admins"])
+	{
+		<tr>
+			<td>
+				@obj.Id
+			</td>
+			<td>
+				@obj.FirstName
+			</td>
+			<td>
+				@obj.LastName
+			</td>
+			<td>
+				@obj.UserName
+			</td>
+			<td>
+				@obj.Email
+
+			</td>
+			<td>
+				<div class="w75 btn-group" role="group">
+					<a asp-controller="Admin" asp-action="EditUser" asp-route-userid="@obj.Id">Edit</a>
+				</div>
+			</td>
+			<td>
+				<div class="w75 btn-group" role="group">
+					<a asp-controller="Admin" asp-action="RemoveUser" asp-route-userid="@obj.Id">Delete</a>
+				</div>
+
+			</td>
+
+		</tr>
+	}
+
+</table>
+
+
+
+<div class="container p-3">
+	<div class="row pt-4">
+		<div class="col-6">
+			<h2 class="text-primary"> User's List</h2>
+		</div>
+	</div>
+
+</div>
+<table class="table table-bordered table-striped" style="width:100%;">
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			First Name
+		</td>
+		<td>
+			Last Name
+		</td>
+		<td>
+			UserName
+		</td>
+		<td>
+			Email
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	@foreach (var obj in (IEnumerable<User>)ViewData["Users"])
+	{
+		<tr>
+			<td>
+				@obj.Id
+			</td>
+			<td>
+				@obj.FirstName
+			</td>
+			<td>
+				@obj.LastName
+			</td>
+			<td>
+				@obj.UserName
+			</td>
+			<td>
+				@obj.Email
+
+			</td>
+			<td>
+				<div class="w75 btn-group" role="group">
+					<a asp-controller="Admin" asp-action="EditUser" asp-route-userid="@obj.Id">Edit</a>
+				</div>
+			</td>
+			<td>
+				<div class="w75 btn-group" role="group">
+					<a asp-controller="Admin" asp-action="RemoveUser" asp-route-userid="@obj.Id">Delete</a>
+				</div>
+
+			</td>
+
+		</tr>
+	}
+
+</table>
+
+

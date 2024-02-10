@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExamSystem.Models
 {
-    public class ExamContext:DbContext
+    public class ExamContext:IdentityDbContext<User>
     {
         public ExamContext() 
         {
@@ -25,24 +26,7 @@ namespace ExamSystem.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Exam>()
-            //    .HasKey(p => p.ExamId);
-            //modelBuilder.Entity<Answer>()
-            //    .HasKey(p => p.AnswerId);
-            //modelBuilder.Entity<Document>()
-            //    .HasKey(p => p.DocId);
-            //modelBuilder.Entity<Question>()
-            //    .HasKey(p => p.QuesionId);
-            //modelBuilder.Entity<Subject>()
-            //    .HasKey(p => p.SubjectId);
-            //modelBuilder.Entity<User>()
-            //    .HasKey(p => p.UserId);
-            //modelBuilder.Entity<UserType>()
-            //    .HasKey(p => p.UserTypeId);
-            //modelBuilder.Entity<Result>()
-            //    .HasKey(p => p.ResultId);
-
-
+            base.OnModelCreating(modelBuilder);
         }
 
     }

@@ -1,0 +1,140 @@
+/* signup.css */
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+}
+
+/* Form Container */
+.item4 {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+    .item4 {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+/* Head Section */
+.head {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .head h4 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+    }
+
+.icon-login {
+    margin-top: 20px;
+}
+
+    .icon-login .icon {
+        color: #555555;
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        font-weight: bold;
+        color: #555555;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #dddddd;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-group input:focus {
+            border-color: royalblue;
+        }
+
+    /* Role Select */
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #dddddd;
+        appearance: none;
+        background-color: #ffffff;
+        background-image: linear-gradient(45deg, transparent 50%, #555555 50%), linear-gradient(135deg, #555555 50%, transparent 50%);
+        background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+        background-size: 5px 5px, 5px 5px;
+        background-repeat: no-repeat;
+        transition: border-color 0.3s ease;
+    }
+
+        .form-group select:focus {
+            border-color: royalblue;
+        }
+
+/* Submit Button */
+.subButton {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .subButton button {
+        padding: 10px 20px;
+        background-color: royalblue;
+        color: #ffffff;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .subButton button:hover {
+            background-color: #1d5bbf;
+        }
+
+/* Sign In Button */
+.item5 {
+    text-align: center;
+}
+
+.signin button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555555;
+    transition: color 0.3s ease;
+}
+
+    .signin button:hover {
+        color: royalblue;
+    }
+
+.signin a {
+    color: #555555;
+    text-decoration: none;
+}
+
+    .signin a:hover {
+        text-decoration: underline;
+    }

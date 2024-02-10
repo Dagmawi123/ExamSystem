@@ -1,31 +1,29 @@
 ﻿using ExamSystem.Models;
 using ExamSystem.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.IdentityModel.Tokens;
-using System.Text.Json.Nodes;
-//using Microsoft.AspNetCore.Mvc;
-//using System.Web.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-//using ExamSystem.Models.User;
+
 
 namespace ExamSystem.Controllers
 {
+    [Authorize(Roles =("User"))]
     public class ExamineeController : Controller
     {
         private readonly IWebHostEnvironment webHostEnvironment;
         //private readonly ProductRepository productRepository;
         private readonly ExamContext examContext;
         private readonly IExamineeRepository userRepository;
+        private readonly UserManager<User> _userManager;
 
-        public ExamineeController(ExamContext examContext, IWebHostEnvironment webHostEnvironment,IExamineeRepository userRepo)
+        public ExamineeController(ExamContext examContext, IWebHostEnvironment webHostEnvironment,IExamineeRepository userRepo, UserManager<User> _userManager)
         {
             this.examContext = examContext;
             this.webHostEnvironment = webHostEnvironment;
             //this.productRepository = productRepository;
             userRepository = userRepo;
-
+            this._userManager = _userManager;
 
         }
         [HttpGet]
@@ -77,9 +75,10 @@ namespace ExamSystem.Controllers
             return View(ex);
         }
         [HttpGet]
-        public IActionResult Results() {
+        public async Task<IActionResult> Results() {
             //UserRepository ur = new UserRepository(examContext);
-            List<Result> results = userRepository.GetResults();
+            User usr=await _userManager.GetUserAsync(User);
+            List<Result> results =userRepository.GetResults(usr);
             ViewBag.ExamNames = userRepository.GetExamNames();
             ViewBag.SubjectNames = userRepository.GetSubjectNames();
             //Console.WriteLine(results.Count());
@@ -122,13 +121,18 @@ namespace ExamSystem.Controllers
             try
             {
                 string id = "85FE0EE1-22CC-42D4-8816-9DE99438188C";
+                User user = await _userManager.GetUserAsync(User);
+                if(user!=null)
+                id =user.Id;
+
                 Result res = new Result();
                 res.RowScore = score;
                 res.Exam = examContext.Exams.Where(e => e.ExamId == eid).First();
                 int numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == res.Exam.ExamId).Count();
                 res.outOf100=(float)res.RowScore / (float)numberOfQuestions;
                 res.outOf100 *= 100;
-                res.User =  examContext.Users.Where(e => e.Id == id).First();
+                // res.User =  examContext.Users.Where(e => e.Id == id).First();
+                res.User = user;
                 res.DateTaken= DateTime.Now;
 
                 //UserRepository ur = new UserRepository(examContext);
