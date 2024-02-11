@@ -215,14 +215,15 @@ namespace ExamSystem.Controllers
             string FileName = "";
             string uniqueCFileName = "";
             string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "docs");
-
+            if (ModelState.IsValid) { 
+            }
             if (reference.DocPath != null)
             {
                  FileName = Guid.NewGuid().ToString() + "_" + reference.DocPath.FileName;
                 uniqueCFileName = Path.Combine(uploadFolder, FileName);
                 reference.DocPath.CopyTo(new FileStream(uniqueCFileName, FileMode.Create));
             }
-        //    if (ModelState.IsValid)
+        //   
           //  {
                 try
                 {

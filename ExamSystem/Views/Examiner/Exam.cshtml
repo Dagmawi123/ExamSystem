@@ -304,7 +304,7 @@
                     <tr style="height: 20px;"></tr>
                     <tr >
                         <td colspan="2"> <span>Question 1</span></td>
-                        <td colspan="5" class="1"><input id ="q1" type="text" style="width: 100%;" placeholder="Write question here"></td>
+                        <td colspan="5" class="1"><textarea id ="q1" type="text" style="width: 100%;" placeholder="Write question here"></textarea></td>
                     </tr>
                     <tr style="height: 20px;"></tr>
                     <tr id ="ans1" class="answers"><td class="1 ans1"  colspan="7"><input type="radio" name="1"> <input type="text" style="width: 80%;"></td></tr>
@@ -360,7 +360,7 @@
         function addQuestion(btn) 
         {
             // var ew=`${btn+"dsa" }`
-            var html = `${"<tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"add\"><td colspan=\"2\"  >Question <span>" + ++Qno + "</span></td>   <td class=\"" + Qno + "\" colspan=\"5\"><input type=\"text\" style=\"width: 100%;\" placeholder=\"Write question here\"></td> </tr><tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px\"><input  name=\"" + Qno + "\" type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px \"><input name=\"" + Qno + "\"  type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"add\" style=\"height: 20px;\"></tr><tr class=\"add\"><td><button class=\"btn btn-primary\" onclick=\"addAnswer(this)\">Add New Answer</button></td></tr>"}`
+            var html = `${"<tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"add\"><td colspan=\"2\"  >Question <span>" + ++Qno + "</span></td>   <td class=\"" + Qno + "\" colspan=\"5\"><textarea type=\"text\" style=\"width: 100%;\" placeholder=\"Write question here\"></textarea></td> </tr><tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px\"><input  name=\"" + Qno + "\" type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px \"><input name=\"" + Qno + "\"  type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"add\" style=\"height: 20px;\"></tr><tr class=\"add\"><td><button class=\"btn btn-primary\" onclick=\"addAnswer(this)\">Add New Answer</button></td></tr>"}`
             var elt = btn.parentElement.parentElement.insertAdjacentHTML("beforebegin", html)
         }
         async function saveExam(Ex) {
@@ -512,7 +512,7 @@
                         document.getElementById('before').insertAdjacentHTML('beforebegin', lastElmt);
                         var qsn = `<tr class="add">
                             <td colspan="2"> <span>Question ${Qno}</span></td>
-                            <td colspan="5" class="${Qno}"><input id="q${Qno}" type="text" value="${Exam.Questions.$values[i].Query}" style="width: 100%;"></td>
+                                                    <td colspan="5" class="${Qno}"><textarea id="q${Qno}"  style="width: 100%;">${Exam.Questions.$values[i].Query}</textarea></td>
                         </tr>`;
                         document.getElementById('lastElt' + Qno).insertAdjacentHTML('beforebegin', qsn);
                         for (var j = 0; j < Exam.Questions.$values[i].Answers.$values.length; j++) {

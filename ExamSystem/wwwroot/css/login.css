@@ -115,3 +115,14 @@ body {
         max-width: 400px;
     }
 }
+
+
+.SlackLogo a {
+    position: absolute;
+    top: 30%;
+}
+
+.SlackLogo {
+    height: 50px;
+    width: 50px;
+}

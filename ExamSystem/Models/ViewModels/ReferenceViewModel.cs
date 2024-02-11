@@ -13,7 +13,7 @@ namespace ExamSystem.Models.ViewModels
 
         public float DocVersion { get; set; } // 
 
-        public DateTime DateAdded { get; set; }
+        //public DateTime DateAdded { get; set; }
 
         public IFormFile DocPath { get; set; } //url path wwwroot
 

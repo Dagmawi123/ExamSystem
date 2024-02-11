@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4yirjIj3H3Kjs+SX+sWHg+YjASNOXnJZReTASWYFqZk=",
+  "Hash": "5A7+P2PCHWZgXZJ/CfAx2FzQGLhoBK4zAJvMStssq4U=",
   "Source": "ExamSystem",
   "BasePath": "_content/ExamSystem",
   "Mode": "Default",
@@ -1292,6 +1292,23 @@
       "OriginalItemSpec": "wwwroot\\css\\ViewAccount.css"
     },
     {
+      "Identity": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\08b8c1f3-ceb8-4f67-92d2-591eb6cb260f_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf",
+      "SourceId": "ExamSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\",
+      "BasePath": "_content/ExamSystem",
+      "RelativePath": "docs/08b8c1f3-ceb8-4f67-92d2-591eb6cb260f_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\docs\\08b8c1f3-ceb8-4f67-92d2-591eb6cb260f_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf"
+    },
+    {
       "Identity": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\114aad3c-e132-494f-9239-c545ec9feabe_AUT_CS461Y23_Chapter_3_Application,_Transport_and_Network_Layers.pdf",
       "SourceId": "ExamSystem",
       "SourceType": "Discovered",
@@ -1394,6 +1411,23 @@
       "OriginalItemSpec": "wwwroot\\docs\\57691b11-b6b9-412f-8a59-bc943a571351_blog76.jpg"
     },
     {
+      "Identity": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\9c0d0d20-3720-4885-bbe0-6daa4db3754e_Lab 1 - Networking Tools.pdf",
+      "SourceId": "ExamSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\",
+      "BasePath": "_content/ExamSystem",
+      "RelativePath": "docs/9c0d0d20-3720-4885-bbe0-6daa4db3754e_Lab 1 - Networking Tools.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\docs\\9c0d0d20-3720-4885-bbe0-6daa4db3754e_Lab 1 - Networking Tools.pdf"
+    },
+    {
       "Identity": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\a0051ff2-ec16-4fbb-b567-e53e93170451_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf",
       "SourceId": "ExamSystem",
       "SourceType": "Discovered",
@@ -1409,6 +1443,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\docs\\a0051ff2-ec16-4fbb-b567-e53e93170451_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\ad1b10c4-80e4-45c8-8805-e16e64333645_C++.png",
+      "SourceId": "ExamSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\",
+      "BasePath": "_content/ExamSystem",
+      "RelativePath": "docs/ad1b10c4-80e4-45c8-8805-e16e64333645_C++.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\docs\\ad1b10c4-80e4-45c8-8805-e16e64333645_C++.png"
     },
     {
       "Identity": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\AUT_CS461Y23 - Chapter 4 - Wide Area Network Technology.pdf",

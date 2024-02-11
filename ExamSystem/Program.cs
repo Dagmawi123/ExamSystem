@@ -12,6 +12,10 @@ builder.Services.AddDbContext<ExamContext>(options => {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection"));
 });
 //builder.Services.AddControllers().AddNewtonsoftJson();
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    //options.AccessDeniedPath = "/Account/Login"; // Update the path to your custom access denied page
+});
 builder.Services.AddIdentity<User, IdentityRole>().
     AddEntityFrameworkStores<ExamContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<IExamineeRepository, ExamineeRepository>();

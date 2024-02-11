@@ -109,6 +109,9 @@
         evaluate();       
     });
 
+    window.addEventListener('beforeunload', function (event) {
+        evaluate();
+    });
     document.addEventListener('DOMContentLoaded',function ()
     {
          startTime = new Date().getTime();

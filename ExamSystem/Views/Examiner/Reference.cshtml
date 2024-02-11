@@ -1,8 +1,7 @@
-﻿@model ExamSystem.Models.ViewModels.ReferenceViewModel;
-@{
+﻿@{
     Layout = "";
 }
-
+@model ExamSystem.Models.ViewModels.ReferenceViewModel;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,8 +252,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <form asp-controller="Examiner" asp-action="Reference" enctype="multipart/form-data"
-                          method="post">
+                    <form asp-controller="Examiner" asp-action="Reference" method="post"  enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 float-left">
@@ -267,14 +265,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1" class="float-left" asp-for="DocVersion">Reference Version</label>
-                                        <input type="number" min="1" max="10 " asp-for="DocVersion" class="form-control" placeholder="1">
+                                        <input type="number" min="1" max="10 " name="DocVersion" asp-for="DocVersion" class="form-control" placeholder="1">
                                         <span asp-validation-for="DocVersion" class="text-danger"></span>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1" class="float-left" asp-for="DocName">Reference Name</label>
-                                            <input type="text" class="form-control" placeholder="ex. MVC architecture " asp-for="DocName">
+                                            <input type="text" class="form-control" name="DocName" placeholder="ex. MVC architecture" asp-for="DocName">
                                             <span asp-validation-for="DocName" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -302,16 +300,16 @@
                                 @*date *@
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1" class="float-left" asp-for="DateAdded">Reference Added Date</label>
-                                        <input type="date" value="1994-05-15"  disabled class="form-control" asp-for="DateAdded">
-                                        <span asp-validation-for="DateAdded" class="text-danger"></span>
+                                        <label for="exampleInputEmail1" class="float-left" >Reference Added Date</label>
+                                        <input type="date" id="myDateInput" name="DateAdded" disabled class="form-control">
+                                        <span class="text-danger"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1" class="float-left" asp-for="DocPath">Reference File</label>
-                                        <input type="file" class="form-control" asp-for="DocPath">
+                                        <input type="file" class="form-control" name="DocPath" asp-for="DocPath">
                                         <span asp-validation-for="DocPath" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -341,6 +339,16 @@
         $(function () {
             $("#example1").DataTable();
         });
+        const currentDate = new Date();
+
+        // Format the date as YYYY-MM-DD
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+
+        // Set the value attribute of the input element
+        document.getElementById('myDateInput').value = formattedDate;
     </script>
 </body>
 </html>     
