@@ -109,8 +109,7 @@ namespace ExamSystem.Controllers
         {
             try
             {
-                bool value = examContext.Answers.Where(a => a.AnswerId== id).Select(a => a.isCorrect).First();
-                return Json(value);
+                return Json(userRepository.checkAnswer(id));
             }
             catch (Exception ex) {
      
@@ -118,42 +117,38 @@ namespace ExamSystem.Controllers
             }
 
         }
-        public async Task<ActionResult> saveScore(int score,Guid eid) {
+        public async Task<ActionResult> saveScore(int score, Guid eid) {
             try
             {
                 string id = "";
                 User user = await _userManager.GetUserAsync(User);
-                if(user!=null)
-                id =user.Id;
-                Result e = examContext.Results.Include(r => r.Exam).Include(e=>e.User).Where(r =>(r.User == user)&&(r.Exam.ExamId == eid)).FirstOrDefault();
-                if (e == null)
-                {
-                    Result res = new Result();
-                    res.RowScore = score;
-                    res.Exam = examContext.Exams.Where(e => e.ExamId == eid).First();
-                    int numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == res.Exam.ExamId).Count();
-                    res.outOf100 = (float)res.RowScore / (float)numberOfQuestions;
-                    res.outOf100 *= 100;
-                    // res.User =  examContext.Users.Where(e => e.Id == id).First();
-                    res.User = user;
-                    res.DateTaken = DateTime.Now;
-
-                    //UserRepository ur = new UserRepository(examContext);
-                    userRepository.addScore(res);
-
-                }
-                else { 
-                e.RowScore = score;
-                    int numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == e.Exam.ExamId).Count();
-                    e.outOf100 = (float)e.RowScore / (float)numberOfQuestions;
-                    e.outOf100 *= 100;
-                    e.DateTaken = DateTime.Now;
-                   await examContext.SaveChangesAsync();
-                }
-              
-
-                return RedirectToAction("User_Home");
+                if (user != null)
+                    id = user.Id;
+               // Result e = await examContext.Results.Include(r => r.Exam).Include(e => e.User).Where(r => (r.User == user) && (r.Exam.ExamId == eid)).FirstOrDefaultAsync();
+                //if (e == null)
+                //{
+                Result res = new Result();
+                res.RowScore = score;
+                //res.Exam = examContext.Exams.Where(e => e.ExamId == eid).First();
+                res.Exam = userRepository.GetExam(eid);
+             //    numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == res.Exam.ExamId).Count();
+               int numberOfQuestions = userRepository.GetNumberofQuestions(res.Exam.ExamId);
+                res.outOf100 = (float)res.RowScore / (float)numberOfQuestions;
+                res.outOf100 *= 100;
+                res.User = user;
+                res.DateTaken = DateTime.Now;
+                userRepository.addScore(res);
+                return RedirectToAction("Results");
             }
+                //else { 
+                //e.RowScore = score;
+                //    int numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == e.Exam.ExamId).Count();
+                //    e.outOf100 = (float)e.RowScore / (float)numberOfQuestions;
+                //    e.outOf100 *= 100;
+                //    e.DateTaken = DateTime.Now;
+                //   await examContext.SaveChangesAsync();
+      
+            
             catch (Exception e) {
                 return RedirectToAction("User_Home");
             }

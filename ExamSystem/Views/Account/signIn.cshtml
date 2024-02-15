@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+@model ExamSystem.Models.Admin.Login
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/new.css">
+</head>
+<body>
+
+    <form class="form" asp-action="Login" method="post">
+        <div class="logo-container">
+            <img src="/images/slack-icon.png" alt="Logo" class="logo">
+        </div>
+        <p class="form-title">Sign in to your account</p>
+        <div class="input-container">
+            <input asp-for="Email" type="email" id="email" name="email" placeholder="Enter email"><br>
+            <span>
+            </span>
+        </div>
+        <div class="input-container">
+            <input asp-for="Password" type="password" name="password" id="password" placeholder="Enter password"><br>
+        </div>
+        <button type="submit" class="submit">
+            Sign in
+        </button>
+
+        <p class="signup-link">
+            No account?
+            <a asp-controller="Account" asp-action="Create">Sign up</a>
+        </p>
+    </form>
+
+</body>
+</html>

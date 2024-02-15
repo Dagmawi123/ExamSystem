@@ -285,8 +285,16 @@
       "PackagePath": "staticwebassets\\css\\login.css"
     },
     {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\new.css",
+      "PackagePath": "staticwebassets\\css\\new.css"
+    },
+    {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\results.css",
       "PackagePath": "staticwebassets\\css\\results.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\sign-in.css",
+      "PackagePath": "staticwebassets\\css\\sign-in.css"
     },
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\signup.css",
@@ -295,6 +303,10 @@
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\07a621eb-cf27-4e2e-932a-bfa2069a76e4_AUT_CS461Y23_Chapter_3_Application,_Transport_and_Network_Layers.pdf",
+      "PackagePath": "staticwebassets\\docs\\07a621eb-cf27-4e2e-932a-bfa2069a76e4_AUT_CS461Y23_Chapter_3_Application,_Transport_and_Network_Layers.pdf"
     },
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\08b8c1f3-ceb8-4f67-92d2-591eb6cb260f_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf",
@@ -345,6 +357,10 @@
       "PackagePath": "staticwebassets\\docs\\ad1b10c4-80e4-45c8-8805-e16e64333645_C++.png"
     },
     {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\bd3c9a12-d6c5-4210-8b86-58406919f184_ADSL.pptx",
+      "PackagePath": "staticwebassets\\docs\\bd3c9a12-d6c5-4210-8b86-58406919f184_ADSL.pptx"
+    },
+    {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\c362d18b-5c5d-403a-9eda-87a42a162f63_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf",
       "PackagePath": "staticwebassets\\docs\\c362d18b-5c5d-403a-9eda-87a42a162f63_AUT_CS461Y23 - Chapter 3 - Internet and Transport Protocols.pdf"
     },
@@ -355,6 +371,10 @@
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\e4f311ff-0a72-4208-9cae-79103252118a_ADSL Splitrer.jpg",
       "PackagePath": "staticwebassets\\docs\\e4f311ff-0a72-4208-9cae-79103252118a_ADSL Splitrer.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\eecf0171-df0f-4a2c-8669-09013a5b1b72_ccna.jpg",
+      "PackagePath": "staticwebassets\\docs\\eecf0171-df0f-4a2c-8669-09013a5b1b72_ccna.jpg"
     },
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\docs\\ff13e842-482c-42b5-942f-9ac5ee46b182_AUT_CS461Y23 - Chapter 3 - Network Layer Addressing.pdf",
@@ -395,6 +415,10 @@
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\images\\slack-icon.png",
       "PackagePath": "staticwebassets\\images\\slack-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
     },
     {
       "Id": "C:\\Users\\user\\source\\repos\\ExamSystem\\ExamSys\\ExamSystem\\wwwroot\\js\\site.js",

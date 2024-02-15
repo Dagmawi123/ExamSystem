@@ -441,8 +441,9 @@ namespace ExamSystem.Migrations
             modelBuilder.Entity("ExamSystem.Models.Result", b =>
                 {
                     b.HasOne("ExamSystem.Models.Exam", "Exam")
-                        .WithMany()
-                        .HasForeignKey("ExamId");
+                        .WithMany("AssociatedResults")
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("ExamSystem.Models.User", "User")
                         .WithMany("Results")
@@ -506,6 +507,8 @@ namespace ExamSystem.Migrations
 
             modelBuilder.Entity("ExamSystem.Models.Exam", b =>
                 {
+                    b.Navigation("AssociatedResults");
+
                     b.Navigation("Questions");
                 });
 

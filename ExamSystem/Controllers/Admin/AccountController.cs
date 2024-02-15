@@ -33,7 +33,7 @@ namespace ExamSystem.Controllers.Admin
             public IActionResult Login()
             {
                 Login login = new Login();
-                return View(login);
+                return View("signIn",login);
 
             }
 
@@ -71,7 +71,7 @@ namespace ExamSystem.Controllers.Admin
                     }
                     ModelState.AddModelError(nameof(login.Email), "Invalid Email or Password");
                 }
-                return View(login);
+                return View("signIn",login);
             }
 
             [AllowAnonymous]
@@ -227,7 +227,7 @@ namespace ExamSystem.Controllers.Admin
                 {
                     // Update was successful
                     await _signInManager.RefreshSignInAsync(existingUser);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {

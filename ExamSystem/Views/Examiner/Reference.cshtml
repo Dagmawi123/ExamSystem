@@ -1,7 +1,7 @@
-﻿@{
+﻿@model ExamSystem.Models.ViewModels.ReferenceViewModel;
+@{
     Layout = "";
 }
-@model ExamSystem.Models.ViewModels.ReferenceViewModel;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" onclick="window.location.href='/Examiner/login'" ">
+                    <a class="nav-link" data-widget="fullscreen" href="/Account/Logout   ">
                         <i class="fas fa-power-off" style="color: rgb(211, 209, 207);"></i>
                     </a>
                 </li>
@@ -75,15 +75,11 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #212529;">
             <!-- Brand Logo -->
-            <a href="/Views/Examiner/login.cshtml" class="brand-link animated swing">
-                <img src="/asset/img/logo.png" alt="DSMS Logo" width="200" style="margin-bottom: -50px;">
-            </a>
+            <img src=/images/logo.jpg alt="DSMS Logo" width="248" height="110" style="margin-bottom: 10px;">
             <!-- Sidebar -->
             <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #212529;">
                 <!-- Brand Logo -->
-                <a href="#" class="brand-link animated swing">
-                    <img src="/asset/img/logo.png" alt="DSMS Logo" width="200" style="margin-bottom: -50px;">
-                </a>
+                <img src=/images/logo.jpg alt="DSMS Logo" width="248" height="110" style="margin-bottom: 10px;">
                 <!-- Sidebar -->
                 <div class="sidebar">
                     <!-- Sidebar Menu -->
@@ -126,7 +122,7 @@
                             </li>
 
 
-                                        @* <li class="nav-item">
+                                @* <li class="nav-item">
                             <a onclick="window.location.href='/Examiner/Result'"class="nav-link">
                             <i class="nav-icon fa fa-star"></i>
                             <p>
@@ -141,7 +137,7 @@
                                    class="nav-link">
                                     <i class="nav-icon fa fa-poll"></i>
                                     <p>
-                                        Exam Result Summary
+                                        Overview
                                     </p>
                                 </a>
                             </li>
@@ -197,8 +193,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                                    @{
-                                                        foreach (var doc in ViewBag.Docs) {
+                                        @{
+                                            foreach (var doc in ViewBag.Docs)
+                                            {
                                                 <tr>
                                                     <td>@doc.DocVersion</td>
                                                     @* <td><img src="@doc.DocPath" width="40" style="border-radius:10px" alt="Doc Image"></td>*@
@@ -207,15 +204,15 @@
                                                     <td>@doc.DateAdded</td>
                                                     <td class="text-right">
                                                         <a class="btn btn-sm bg3" href="#"><i class="fa fa-edit"></i> edit</a>
-                                                        <a class="btn btn-sm bg1" href="/Examiner/DeleteDoc?id=@doc.DocId" >
+                                                        <a class="btn btn-sm bg1" href="/Examiner/DeleteDoc?id=@doc.DocId">
                                                             <i class="fa fa-trash-alt"></i> delete
                                                         </a>
                                                     </td>
                                                 </tr>
-                                                        }
-                                                    }
-                                       
-                                        
+                                            }
+                                        }
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -252,7 +249,8 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <form asp-controller="Examiner" asp-action="Reference" method="post"  enctype="multipart/form-data">
+                    <form asp-controller="Examiner" asp-action="Reference" enctype="multipart/form-data"
+                          method="post">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 float-left">
@@ -265,14 +263,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1" class="float-left" asp-for="DocVersion">Reference Version</label>
-                                        <input type="number" min="1" max="10 " name="DocVersion" asp-for="DocVersion" class="form-control" placeholder="1">
+                                        <input type="number" min="1" max="10 " asp-for="DocVersion" class="form-control" placeholder="1">
                                         <span asp-validation-for="DocVersion" class="text-danger"></span>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1" class="float-left" asp-for="DocName">Reference Name</label>
-                                            <input type="text" class="form-control" name="DocName" placeholder="ex. MVC architecture" asp-for="DocName">
+                                            <input type="text" class="form-control" placeholder="ex. MVC architecture " asp-for="DocName">
                                             <span asp-validation-for="DocName" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -301,15 +299,15 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1" class="float-left" >Reference Added Date</label>
-                                        <input type="date" id="myDateInput" name="DateAdded" disabled class="form-control">
-                                        <span class="text-danger"></span>
+                                        <input type="date" id="myDate"  disabled class="form-control">
+                                        
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1" class="float-left" asp-for="DocPath">Reference File</label>
-                                        <input type="file" class="form-control" name="DocPath" asp-for="DocPath">
+                                        <input type="file" class="form-control" asp-for="DocPath">
                                         <span asp-validation-for="DocPath" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -348,7 +346,7 @@
         const formattedDate = `${year}-${month}-${day}`;
 
         // Set the value attribute of the input element
-        document.getElementById('myDateInput').value = formattedDate;
+        document.getElementById('myDate').value = formattedDate;
     </script>
 </body>
 </html>     

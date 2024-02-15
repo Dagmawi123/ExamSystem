@@ -1,7 +1,8 @@
-﻿@{
+﻿@model List<Exam>
+
+@{
     Layout = "";
 }
-@model List<Exam>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +66,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" onclick="window.location.href='/Examiner/login'" ">
+                    <a class="nav-link" data-widget="fullscreen" href="/Account/Logout   ">
                         <i class="fas fa-power-off" style="color: rgb(211, 209, 207);"></i>
                     </a>
                 </li>
@@ -75,18 +76,14 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #212529;">
             <!-- Brand Logo -->
-            <a onclick="href=#" class="brand-link animated swing">
-                <img src="/images/slack-icon.png" " alt="DSMS Logo" width="200" style="margin-bottom: -50px;">
-            </a>
+            <img src=/images/logo.jpg alt="DSMS Logo" width="248" height="110" style="margin-bottom: 10px;">
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar Menu -->
 
                 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #212529;">
                     <!-- Brand Logo -->
-                    <a href="#" class="brand-link animated swing">
-                        <img src="/asset/img/logo.png" alt="DSMS Logo" width="200" style="margin-bottom: -50px;">
-                    </a>
+                    <img src=/images/logo.jpg alt="DSMS Logo" width="248" height="110" style="margin-bottom: 10px;">
                     <!-- Sidebar -->
                     <div class="sidebar">
                         <!-- Sidebar Menu -->
@@ -128,23 +125,12 @@
                                     </a>
                                 </li>
 
-
-                                            @* <li class="nav-item">
-                                <a onclick="window.location.href='/Examiner/Result'"class="nav-link">
-                                <i class="nav-icon fa fa-star"></i>
-                                <p>
-                                Scores
-                                </p>
-                                </a>
-                                </li> *@
-
-
                                 <li class="nav-item">
                                     <a onclick="window.location.href='/Examiner/Overview'"
                                        class="nav-link">
                                         <i class="nav-icon fa fa-poll"></i>
                                         <p>
-                                            Exam Result Summary
+                                            Overview
                                         </p>
                                     </a>
                                 </li>
@@ -200,31 +186,25 @@
                                                 <th>Failed</th>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>Exam 1</td>
-                                                        <td>30</td>
-                                                        <td>5</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Exam 2</td>
-                                                        <td>25</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Exam 3</td>
-                                                        <td>30</td>
-                                                        <td>5</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Exam 4</td>
-                                                        <td>33</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Exam 5</td>
-                                                        <td>31</td>
-                                                        <td>4</td>
-                                                    </tr>
+                                                    @* @foreach  *@
+
+                                                    @{
+                                                        @foreach (var exam in Model)
+                                                        {
+                                                            <tr>
+                                                                <td>@exam.ExamName</td>
+                                                                <td>@exam.DateCreated.ToString("dd-MMM yyyy")</td>
+                                                                <td>@exam.TimeAllocated</td>
+                                                            </tr>
+                                                        }
+                                                    }
+
+                                                    @* <tr>
+                                                    <td>Exam 5</td>
+                                                    <td>31</td>
+                                                    <td>4</td>
+                                                    </tr> *@
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -256,20 +236,6 @@
     <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
-    <div id="delete" class="modal animated rubberBand delete-modal" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <img src="/asset/img/sent.png" alt="" width="50" height="46">
-                    <h3>Are you sure want to delete this Result?</h3>
-                    <div class="m-t-20">
-                        <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                        <button type="submit" class="btn bg1">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- jQuery -->
     <script src="/asset/jquery/jquery.min.js"></script>
     <script src="/asset/js/bootstrap.bundle.min.js"></script>
@@ -322,4 +288,4 @@
     </script>
 </body>
 
-</html>
+</html> 

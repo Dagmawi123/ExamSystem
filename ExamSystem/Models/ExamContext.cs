@@ -27,6 +27,10 @@ namespace ExamSystem.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Exam>()
+        .HasMany(e => e.AssociatedResults)
+        .WithOne(r => r.Exam)
+        .OnDelete(DeleteBehavior.Cascade);
         }
 
     }

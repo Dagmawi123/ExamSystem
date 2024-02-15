@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  body{
+    box-sizing: border-box;
+  background-color: whitesmoke;
+  height: 100vh;
+  width: 100vw;
+   }
+   .logo{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 0;
+  }
+  .logo{
+    grid-area: logo;
+  }
+  h4{
+    grid-area: h4;
+  }
+  .e-mail{
+    grid-area: email;
+  }
+  .inpemail{
+    grid-area: inpemail;
+  }
+  .Password{
+grid-area: password;    
+}
+.inppwd{
+    grid-area: inppwd;
+}
+h5{
+   grid-area: h5; 
+}
+.btn{
+    grid-area:btn;
+}
+
+.wrapper{
+width:40%;
+height: 70vh;
+position: relative;
+left: 30%;
+right: 30%;
+background-color: rgb(109, 127, 226);     
+display: grid;
+grid-template-columns: 1fr 1fr 3fr;
+grid-template-rows: 2fr repeat(6,1fr);
+grid-template-areas:'logo . h4'
+'email e-mail .'
+'inpemail inpemail inpemail'
+'password password .'
+'inppwd inppwd inppwd'
+'. . btn'
+'h5 h5 h5'
+;
+}
+h4{
+    font-size: 30px;
+ position: relative;
+ top: 30%;
+}
+.e-mail,.Password{
+  font-size: 30px;
+  position: relative;
+  /* left:37%; */
+  /* top: 58%;   */
+}
+h5{
+font-size: 15px;
+position: relative;
+top: 28%;
+left: 25%;
+right: 25%;
+}
+.logo{
+ cursor:pointer;   
+}
+.btn{
+  font-size: 20px;  
+  width: 60%;
+  position: relative;
+ left: -10%;
+  height: 40%;
+  top: 30%;
+  bottom: 30%;
+}
+@media(max-width:538px)
+{
+    body{
+        width: 100%;
+       overflow-x: hidden;
+       height: 100vh;
+    }
+.wrapper{
+  min-width: 100%;
+  position: relative;
+  left: 0px;
+  right: 0px;
+min-height: 682px;
+
+}
+h5{height: 20px;
+    width: 90%;
+    left: 15%;
+    right: 5%;
+    top: 65px;
+}
+
+
+}
+@media(min-width:539px){
+    body{
+        width: 100%;
+       overflow-x: hidden;
+       height: 100vh;
+    }
+    .wrapper{
+        position: relative;
+        top: 20px;
+        width: 90%;
+        left: 5%;
+        right: 5%;
+        height: 550px;
+    }
+    h5{
+        font-size: 15px;
+        position: relative;
+        top:72%;
+        left: 120px;
+        right: 0%;
+        }   
+      .btn{
+            font-size: 15px;  
+            width: 60%;
+            position: relative;
+           left: -10%;
+            height: 80%;
+            top: 50%;
+            bottom: 30%;
+          }
+
+
+    } 
+    @media (min-width:681px) {
+        .wrapper{
+            width:62%;
+            height: 70vh;
+            position: relative;
+            left: 19%;
+            right: 19%;    }
+            h5{
+                font-size: 15px;
+                position: relative;
+                top:72%;
+                left: 15%;
+                right: 0%;
+                }   
+
+}
+@media (min-width:744px) {
+    h5{
+        font-size: 15px;
+        position: relative;
+        top:72%;
+        left: 31%;
+        right: 0%;
+        }   
+}

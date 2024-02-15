@@ -255,6 +255,7 @@ namespace ExamSystem.Controllers
         [HttpGet]
         public IActionResult Subject()
         {
+            ViewBag.Subjects = examContext.Subjects.ToList();
             return View();
         }
         [HttpPost]
@@ -325,9 +326,11 @@ namespace ExamSystem.Controllers
         [HttpGet]
         public IActionResult Overview()
         {
-
-            //fro the pass and fail from result table through exam id relation
-            return View();
+         
+              List<Exam> examList = examContext.Exams.ToList();
+                //fro the pass and fail from result table through exam id relation
+                return View(examList);
+            
         }
         [HttpGet]
         public IActionResult Result()
@@ -348,6 +351,39 @@ namespace ExamSystem.Controllers
             return RedirectToAction("Reference");
 
         }
+        public async Task<ActionResult> DeleteSub(Guid id)
+        {
+            Models.Subject Sub = await examContext.Subjects.FindAsync(id);
+            if (Sub != null)
+            {
+                examContext.Subjects.Remove(Sub);
+                await examContext.SaveChangesAsync();
+            }
+            return RedirectToAction("Subject");
+
+        }
+
+        public IActionResult Dash()
+        {
+
+            // var subjectCount = ecomContext.Subjects.Count();
+            // var referenceCount = ecomContext.Documents.Count();
+            // var examCount = ecomContext.Exams.Count();
+
+            ViewBag.Subjects = examContext.Subjects.Count();
+            ViewBag.Exams = examContext.Exams.Count();
+            List<Exam> examList = examContext.Exams.ToList();
+            ViewBag.Docs = examContext.Documents.Include(d => d.Subject).ToList().Count();
+
+            return View("Dashboard");
+        }
+        [HttpPost]
+        public IActionResult Index(int a)
+        {
+            return View();
+        }
+
+
     }
 }
 

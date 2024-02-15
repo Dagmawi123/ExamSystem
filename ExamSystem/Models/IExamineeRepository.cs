@@ -20,6 +20,8 @@ namespace ExamSystem.Models
         public ResultDetail GetResultDetail(Guid resId);
         public List<Exam> FilterExams(string name);
         public List<Document> FilterDocs(string DocName, string Subject, string version);
+        public bool checkAnswer(Guid id);
         //public float ComputeScore(Guid id);
+        public int GetNumberofQuestions(Guid Eid);
+        }
     }
-}

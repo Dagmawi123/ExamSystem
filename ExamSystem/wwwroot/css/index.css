@@ -523,18 +523,23 @@ flex-grow: 1;
    width: 387px;
 }
     .record .name a {
-    color:black;
+        color: #298a8e;
+        cursor: pointer;
     }
-        .record .name a:hover {
+record .name {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.docName {
+cursor:pointer;
+}
+    .docName:hover{
         text-decoration:underline;
-        cursor:pointer;
-              
-        }
-
-        .record .type {
-            /* flex-grow: 1; */
-            width: 171.867px;
-        } 
+    }
+    .record .type {
+        /* flex-grow: 1; */
+        width: 171.867px;
+    } 
 .record .date{
 width: 171.867px;
 }

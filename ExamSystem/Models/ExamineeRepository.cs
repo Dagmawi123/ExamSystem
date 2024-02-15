@@ -133,6 +133,17 @@ namespace ExamSystem.Models
                 return docs;
         }
 
+        public bool checkAnswer(Guid id) {
+            bool value = examContext.Answers.Where(a => a.AnswerId == id).Select(a => a.isCorrect).First();
+            return value;
+        }
+        public int GetNumberofQuestions(Guid Eid) {
+            int numberOfQuestions = examContext.Questions.Include(e => e.Exam).Where(q => q.Exam.ExamId == Eid).Count();
+            return numberOfQuestions;
+
+        }
+
+
 
         //public float ComputeScore(Guid id) {
         //    //Result result = examContext.Results.Include(e=>e.Exam).Where(r => r.ResultId == id).First();

@@ -16,5 +16,6 @@ namespace ExamSystem.Models
         public int PassingMark {  get; set; } 
         public List<Question> Questions { get; set; }
         public float AverageScore { get; set; } = 0;
+        public List<Result> AssociatedResults { get; set; }  
     } 
 }

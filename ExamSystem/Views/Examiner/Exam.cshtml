@@ -1,7 +1,7 @@
-﻿@{
-    Layout = "";
+﻿@model List<Exam>
+@{
+    Layout = null;
 }
-@model List<Exam>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="~/css/index.css" >
+    <link rel="stylesheet" href="~/css/index.css">
 
 
 
@@ -54,14 +54,17 @@
             background-color: rgb(4,91,98);
             color: rgb(211, 209, 207);
         }
+        .body1{
+        width:100% !important;
+        }
     </style>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body  class="hold-transition sidebar-mini layout-fixed body1">
     <div class="wrapper">
         <!-- Navbar -->
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #212529;">
-        <!-- Left navbar links -->
+            <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars" style="color: rgb(211, 209, 207);"></i></a>
@@ -86,16 +89,14 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #212529;">
             <!-- Brand Logo -->
-            <a href="/Views/Examiner/login.cshtml" class="brand-link animated swing">
-                <img src="/images/slack-icon.png" alt="DSMS Logo" width="200" style="margin-bottom: -50px;">
-            </a>
+            <img src=/images/logo.jpg alt="DSMS Logo" width="248" height="110" style="margin-bottom: 10px;">
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a onclick="window.location.href='/Examiner/Index'"
+                            <a onclick="window.location.href='/Examiner/Dash'"
                                class="nav-link">
                                 <i class="nav-icon fa fa-tachometer-alt"></i>
                                 <p>
@@ -104,7 +105,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="window.location.href='/Examiner/Exam'" class="nav-link">
+                            <a onclick="window.location.href='/Examiner/Index'" class="nav-link">
                                 <i class="nav-icon fa fa-file-signature"></i>
                                 <p>
                                     Exam
@@ -118,9 +119,6 @@
                                     Reference
                                 </p>
                             </a>
-
-
-
                         <li class="nav-item">
                             <a onclick="window.location.href='/Examiner/Subject'" class="nav-link">
                                 <i class="nav-icon fa fa-book"></i>
@@ -129,24 +127,12 @@
                                 </p>
                             </a>
                         </li>
-
-
-                            @* <li class="nav-item">
-                        <a onclick="window.location.href='/Examiner/Result'"class="nav-link">
-                        <i class="nav-icon fa fa-star"></i>
-                        <p>
-                        Scores
-                        </p>
-                        </a>
-                        </li> *@
-
-
                         <li class="nav-item">
                             <a onclick="window.location.href='/Examiner/Overview'"
                                class="nav-link">
                                 <i class="nav-icon fa fa-poll"></i>
                                 <p>
-                                    Exam Result Summary
+                                    Overview
                                 </p>
                             </a>
                         </li>
@@ -184,54 +170,44 @@
                 <div class="container-fluid">
                     <div class="card card-info">
                         <div class="card-body">
-                            <a class="btn btn-sm bg1" data-toggle="modal" data-target="#fullScreenModal" onclick="clear()">
+                            <button class="btn btn-sm bg1 add-exam" data-toggle="modal" data-target="#fullScreenModal">
                                 <i class="fa fa-plus"></i> Add Exam
-                            </a><br><br>
+                            </button><br><br>
                             <div class="col-md-12 table-responsive">
                                 <table id="example1" class="table align-items-center mb-0">
                                     <thead>
                                         <tr>
-                                         
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Exam Name</th>
-                                            
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Timer Allowed</th>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @{
-                                            foreach (var exam in Model)
-                                            {
-                                                                                                                    <tr>
-                                                                                                                        
-                                                                                                                        <td>@exam.ExamName</td>
-                                                                                                                        <td>@exam.DateCreated.ToString("dd-MMM yyyy")</td>
-                                                                                                                        <td>@exam.TimeAllocated</td>
-                                                                                                                        
-                                                                                                                        <td class="text-right">
-                                                                                                                        <a class="btn btn-sm bg3" data-toggle="modal" data-target="#fullScreenModal" onclick="EditExam('@exam.ExamId')"><i class="fa fa-edit"></i> edit</a>
-                                                                                                                            <a class="btn btn-sm bg1"  href="/Examiner/DeleteExam?id=@exam.ExamId">
-                                                                                                                                <i class="fa fa-trash-alt"></i> delete
-                                                                                                                            </a>
-                                                                                                                        </td>
-                                                                                                                    </tr>
-                                                
-                                            }
+                                        @foreach (var exam in Model)
+                                        {
+                                            <tr>
+                                                <td>@exam.ExamName</td>
+                                                <td>@exam.DateCreated.ToString("dd-MMM yyyy")</td>
+                                                <td>@exam.TimeAllocated</td>
 
+                                                <td class="text-right">
+                                                    <a class="btn btn-sm bg3" data-toggle="modal" data-target="#fullScreenModal" onclick="EditExam('@exam.ExamId')"><i class="fa fa-edit"></i> edit</a>
+                                                    <a class="btn btn-sm bg1" href="/Examiner/DeleteExam?id=@exam.ExamId">
+                                                        <i class="fa fa-trash-alt"></i> delete
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         }
-                                       
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
         </div>
-        <!-- /.card-body -->
     </div>
+    <!-- /.card-body -->
     </div>
     <!-- /.container-fluid -->
     </section>
@@ -240,21 +216,6 @@
     <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
-    <div id="delete" class="modal animated rubberBand delete-modal" role="dialog">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <img src="../asset/img/sent.png" alt="" width="50" height="46">
-                    <h3>Are you sure want to delete this Exam?</h3>
-                    <div class="m-t-20">
-                        <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                        <button type="submit" class="btn bg1">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Full-Screen Modal -->
     <div class="modal fade res-modal" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -286,10 +247,8 @@
                                     <option value=@subType.SubjectName>@subType.SubjectName</option>
                                 }
                             </select>
-                            <!-- <i class="fas fa-caret-down select-icon"></i> -->
-            </td>
-          
                         <td></td>
+                        </td>
                         <td><input id="time" type="time"></td>
                         <td></td>
                         <td><input id="value" min="1" type="number"></td>
@@ -298,31 +257,31 @@
                     </tr>
                     <tr style="height: 20px;"></tr>
                     <tr>
-                        <td  colspan="3">Exam Name/Number</td>
+                        <td colspan="3">Exam Name/Number</td>
                         <td colspan="4"><input id="exam" type="text" style="width: 100%;" value=""></td>
                     </tr>
                     <tr style="height: 20px;"></tr>
-                    <tr >
+                    <tr>
                         <td colspan="2"> <span>Question 1</span></td>
-                        <td colspan="5" class="1"><textarea id ="q1" type="text" style="width: 100%;" placeholder="Write question here"></textarea></td>
+                        <td colspan="5" class="1"><input id="q1" type="text" style="width: 100%;" placeholder="Write question here"></td>
                     </tr>
                     <tr style="height: 20px;"></tr>
-                    <tr id ="ans1" class="answers"><td class="1 ans1"  colspan="7"><input type="radio" name="1"> <input type="text" style="width: 80%;"></td></tr>
-                    <tr id ="ans2" class="answers"><td class="1 ans1"  colspan="7"><input type="radio" name="1"> <input type="text" style="width: 80%;"></td></tr>
-                    <tr  style="height: 20px;"></tr>
-                    <tr id ="lastElt1"><td><button class="btn btn-primary" onclick="addAnswer(this)">Add New Answer</button></td></tr>
+                    <tr id="ans1" class="answers"><td class="1 ans1" colspan="7"><input type="radio" name="1"> <input type="text" style="width: 80%;"></td></tr>
+                    <tr id="ans2" class="answers"><td class="1 ans1" colspan="7"><input type="radio" name="1"> <input type="text" style="width: 80%;"></td></tr>
+                    <tr style="height: 20px;"></tr>
+                    <tr id="lastElt1"><td><button class="btn btn-primary" onclick="addAnswer(this)">Add New Answer</button></td></tr>
                     <tr id="before"><td><button class="btn btn-primary" onclick="addQuestion(this)">Add New Question</button></td></tr>
-                    <tr><td>
+                    <tr>
+                        <td>
                             <button id="save" class="btn btn-primary" onclick="saveExam()">Save Exam</button>
-                    </td>
-                        
+                        </td>
+
                     </tr>
                 </table>
             </div>
 
 
         </div>
-    </div>
     </div>
 
 
@@ -336,18 +295,20 @@
     <script src="../asset/tables/datatables-responsive/js/responsive.bootstrap4.min.js"></script>s
     <script src="../asset/tables/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
     <script>
-       // console.log("bdadjdsd")
+        // console.log("bdadjdsd")
         $(function () {
             $("#example1").DataTable();
         });
-            var Qno = 1;
+        var Qno = 1;
         var exx = ""
-
+        document.getElementsByClassName('add-exam')[0].addEventListener('click', () => {
+            clear(1);
+        })
 
         function addAnswer(e) {
             var html2 = `${"<tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px \"><input  name=\"" + Qno + "\" type=\"radio\" > <input type=\"text\" style=\"width: 80%;\">  <button onclick=\"deleteAnswer(this)\" class=\"btn-primary\">Delete</button></td></tr>"}`
 
-       
+
             e.parentElement.parentElement.previousElementSibling.insertAdjacentHTML("beforebegin", html2)
         }
         function deleteAnswer(elt) {
@@ -357,28 +318,25 @@
             // btn.parentElement.parentElement.parentElement.remove(btn.parentElement.parentElement)
         }
 
-        function addQuestion(btn) 
-        {
+        function addQuestion(btn) {
             // var ew=`${btn+"dsa" }`
-            var html = `${"<tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"add\"><td colspan=\"2\"  >Question <span>" + ++Qno + "</span></td>   <td class=\"" + Qno + "\" colspan=\"5\"><textarea type=\"text\" style=\"width: 100%;\" placeholder=\"Write question here\"></textarea></td> </tr><tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px\"><input  name=\"" + Qno + "\" type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px \"><input name=\"" + Qno + "\"  type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"add\" style=\"height: 20px;\"></tr><tr class=\"add\"><td><button class=\"btn btn-primary\" onclick=\"addAnswer(this)\">Add New Answer</button></td></tr>"}`
+            var html = `${"<tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"add\"><td colspan=\"2\"  >Question <span>" + ++Qno + "</span></td>   <td class=\"" + Qno + "\" colspan=\"5\"><input type=\"text\" style=\"width: 100%;\" placeholder=\"Write question here\"></td> </tr><tr class=\"add\" style=\"height: 20px;\"></tr> <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px\"><input  name=\"" + Qno + "\" type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"answers add\"><td  class=\"" + Qno + "\" colspan=\"7px \"><input name=\"" + Qno + "\"  type=\"radio\" > <input type=\"text\" style=\"width: 80%;\"></td></tr>  <tr class=\"add\" style=\"height: 20px;\"></tr><tr class=\"add\"><td><button class=\"btn btn-primary\" onclick=\"addAnswer(this)\">Add New Answer</button></td></tr>"}`
             var elt = btn.parentElement.parentElement.insertAdjacentHTML("beforebegin", html)
         }
         async function saveExam(Ex) {
-            if (Ex != null) 
-            {
+            if (Ex != null) {
                 var Exam = JSON.parse(Ex);
-               // console.log(Exam);
+                // console.log(Exam);
                 var questions = [];
-                for (var i = 0; i < Qno; i++) {
+                for (var i = 0; i < Exam.Questions.$values.length; i++) {
                     var onePack = document.getElementsByClassName(`${i + 1}`);
                     var questionWithAnswer = {
                         QId: Exam.Questions.$values[i].QuesionId,
                         quest: onePack[0].firstElementChild.value,
                         answer: [] // Initialize the `answer` property as an empty array
                     };
-                    for (var j = 1; j < onePack.length; j++) 
-                    {
-                      // console.log(Exam.Questions.$values[i].Answers.$values[j-1].AnswerId) 
+                    for (var j = 1; j < onePack.length; j++) {
+                        // console.log(Exam.Questions.$values[i].Answers.$values[j-1].AnswerId)
                         var k = j - 1;
                         var arr = [
                             Exam.Questions.$values[i].Answers.$values[k].AnswerId,
@@ -451,14 +409,15 @@
                 });
             }
         }
-       
-
-     
 
 
-
-        function clear()
-        {
+        function clear(id) {
+            if (id == 2) {
+            document.querySelector('.modal-header h5 ').textContent="Edit Existing Exam"
+            }
+            if (id == 1) {
+                document.querySelector('.modal-header h5 ').textContent = "Add New Exam"
+            }
             console.log('yes am called');
             var elts = document.getElementsByClassName('add');
             while (elts.length > 0) {
@@ -466,16 +425,13 @@
             }
         }
         function EditExam(id) {
-            clear();
-            //document.getElementById('save').setAttribute('onclick', `myFunction(${Exam})`)
-            // var Qno = 1;
-            
+            clear(2);
             fetch("/Examiner/EditExam?id=" + id)
                 .then(res => res.json())
                 .then(Exam => {
                     var exAsString = JSON.stringify(Exam);
+                    //console.log(Exam)
                     exx = exAsString;
-                    //console.log(exAsString);
                     document.getElementById('save').onclick = function () {
                         saveExam(exAsString);
                     };
@@ -484,43 +440,42 @@
                     document.getElementById('pass').value = Exam["PassingMark"];
                     document.getElementById('value').value = Exam["QuestionWeight"];
                     document.getElementById('subject').value = Exam.Subject.SubjectName;
-                    // console.log(Exam["Questions"][0].Query)
-                    // console.log(Exam.Questions.$values[0].Query);
-                    document.getElementById('q' + Qno).value = Exam.Questions.$values[0].Query;
+                    //the first question query
+                    document.getElementById('q1').value = Exam.Questions.$values[0].Query;
 
                     for (var t = 0; t < 2; t++) {
+                        console.log(Exam.Questions.$values[0].Answers.$values[t].isCorrect)
                         document.getElementsByClassName('ans1')[t].firstElementChild.checked = Exam.Questions.$values[0].Answers.$values[t].isCorrect;
                         document.getElementsByClassName('ans1')[t].lastElementChild.value = Exam.Questions.$values[0].Answers.$values[t].AnswerText;
                     }
-
+                    //for the 3 and 4 th answers of the first question
                     if (Exam.Questions.$values[0].Answers.$values.length > 2) {
                         for (var j = 2; j < Exam.Questions.$values[0].Answers.$values.length; j++) {
                             var html = `<tr class="answers add">
-                                <td class="${Qno}" colspan="7">
-                                    <input type="radio" ${Exam.Questions.$values[0].Answers.$values[j].isCorrect ? 'checked' : ''} name="${Qno}">
-                                    <input value="${Exam.Questions.$values[0].Answers.$values[j].AnswerText}" type="text" style="width: 80%;">
-                                </td>
-                            </tr>
-                            <tr class="add" style="height: 20px;"></tr>`;
+              <td class="1" colspan="7">
+                  <input type="radio" ${Exam.Questions.$values[0].Answers.$values[j].isCorrect ? 'checked' : ''} name="1">
+                  <input value="${Exam.Questions.$values[0].Answers.$values[j].AnswerText}" type="text" style="width: 80%;">
+              </td>
+          </tr>
+          <tr class="add" style="height: 20px;"></tr>`;
 
-                            document.getElementById('lastElt' + Qno).previousElementSibling.insertAdjacentHTML("beforebegin", html);
+                            document.getElementById('lastElt1').previousElementSibling.insertAdjacentHTML("beforebegin", html);
                         }
                     }
-
                     for (var i = 1; i < Exam.Questions.$values.length; i++) {
-                        var lastElmt = `<tr id="lastElt${++Qno}"><td><button class="btn btn-primary add" onclick="addAnswer(this)">Add New Answer</button></td></tr>`;
+                        var lastElmt = `<tr id="lastElt${i+1}" class="add"><td></td></tr>`;
                         document.getElementById('before').insertAdjacentHTML('beforebegin', lastElmt);
                         var qsn = `<tr class="add">
-                            <td colspan="2"> <span>Question ${Qno}</span></td>
-                                                    <td colspan="5" class="${Qno}"><textarea id="q${Qno}"  style="width: 100%;">${Exam.Questions.$values[i].Query}</textarea></td>
-                        </tr>`;
-                        document.getElementById('lastElt' + Qno).insertAdjacentHTML('beforebegin', qsn);
+          <td colspan="2"> <span>Question ${i+1}</span></td>
+          <td colspan="5" class="${i+1}"><input id="q${i+1}" type="text" value="${Exam.Questions.$values[i].Query}" style="width: 100%;"></td>
+                                </tr>`;
+                        document.getElementById(`lastElt${i+1}`).insertAdjacentHTML('beforebegin', qsn);
                         for (var j = 0; j < Exam.Questions.$values[i].Answers.$values.length; j++) {
-                            var answer = `<tr class="answers add"><td class="${Qno}" colspan="7">
-                                <input type="radio" ${Exam.Questions.$values[i].Answers.$values[j].isCorrect ? 'checked' : ''} name="${Qno}">
-                                <input type="text" value="${Exam.Questions.$values[i].Answers.$values[j].AnswerText}" style="width: 80%;">
-                            </td></tr>`;
-                            document.getElementById('lastElt' + Qno).insertAdjacentHTML('beforebegin', answer);
+                            var answer = `<tr class="answers add"><td class="${i+1}" colspan="7">
+              <input type="radio" ${Exam.Questions.$values[i].Answers.$values[j].isCorrect ? 'checked' : ''} name="${i+1}">
+              <input type="text" value="${Exam.Questions.$values[i].Answers.$values[j].AnswerText}" style="width: 80%;">
+          </td></tr>`;
+                            document.getElementById(`lastElt${i + 1}`).insertAdjacentHTML('beforebegin', answer);
                         }
                     }
                 })
@@ -528,10 +483,7 @@
                     console.error('Error:', error);
                 });
         }
-    
-                        
-  </script>
-
+    </script>
 
 </body>
 
