@@ -73,8 +73,8 @@
 
     <div class="buttons">
         <button class="btn-success submit" data-toggle="modal" data-target="#confirmationModal">Submit Answers</button>
-        <button class="btn-danger cancel">Cancel</button>
-    </div>
+@*         <button class="btn-danger cancel">Cancel</button> *@ 
+</div>
 
 
     <!-- Confirmation Modal -->
@@ -99,31 +99,38 @@
     </div>
 
     <!-- <button class="submit">Submit Answers</button> -->
+<form action="/Examinee/SaveScore" method="POST" id="scoreForm">
+    <input type="hidden" name="score" id="scoreInput">
+    <input type="hidden" name="eid" id="eidInput" >
+</form>
 </body>
 </html>
 <script>
     var startTime, endTime;
-    // console.log("HEREREEEEEEE ");
-
+let isEvaluating=false;
     document.getElementById('confirmButton').addEventListener('click', function () {
-        evaluate();       
+        if(!isEvaluating){
+           evaluate();          
+        }
+      
     });
 
     window.addEventListener('beforeunload', function (event) {
-        evaluate();
+            if(!isEvaluating){
+           evaluate();          
+        }
+      
     });
     document.addEventListener('DOMContentLoaded',function ()
     {
          startTime = new Date().getTime();
-        // console.log("HEREREEEEEEE ");
+      
          var examDuration = '@Model.TimeAllocated'+":00"; // Replace with the actual duration fetched from the database
-        // Calculate the end time by adding the exam duration to the current time
         var durationParts = examDuration.split(":");
         var durationHours = parseInt(durationParts[0]);
         var durationMinutes = parseInt(durationParts[1]);
         var durationSeconds = parseInt(durationParts[2]);
          endTime = startTime + (durationHours * 60 * 60 * 1000) + (durationMinutes * 60 * 1000) + (durationSeconds * 1000);
-        // console.log("HEREREEEEEEE "+startTime + "     " + endTime);
 
     })
     setInterval(function () 
@@ -133,14 +140,14 @@
         if (remainingTime <= 0) {
             document.getElementById('timer').innerHTML = '00:00:00';
             // Add any code you want to execute when the timer reaches 00:00:00
-            evaluate();
+                 if(!isEvaluating){
+           evaluate();          
+        }
+      
             return;
         }
 
         // // Recalculate remaining time after each second
-        // remainingTime = endTime - new Date().getTime();
-
-        // Convert remaining time to hours, minutes, and seconds
         var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.ceil((remainingTime % (1000 * 60)) / 1000);
@@ -154,24 +161,26 @@
 
 
     },1000)
-    // let totalScore = 0;
-    // var submit=document.body.querySelector(".submit")
-    // submit.addEventListener('click',evaluate)
-    function evaluate() {
+
+    function evaluate()
+    {
+         var evaluateButton = document.getElementById("confirmButton");
+    evaluateButton.disabled = true; // Disable the button
         var totalScore = 0;
         var questions = document.getElementsByClassName("question");
         var fetchPromises = [];
 
         Array.from(questions).forEach((quest) => {
             var checkedAnswer = quest.querySelector(".answers input:checked");
-
+           
             if (!checkedAnswer) {
                 return;
             } else {
+                console.log("Checking answeer for "+checkedAnswer.getAttribute("ans-id"));
                 var fetchPromise = fetch("/Examinee/checkAnswer/?id=" + checkedAnswer.getAttribute("ans-id"))
                     .then((response) => response.json())
                     .then((ans) => {
-                        console.log(ans);
+                       // console.log(ans);
                         if (ans) {
                             totalScore++;
                         }
@@ -183,15 +192,31 @@
 
         Promise.all(fetchPromises)
             .then(() => {
-                //console.log("score equals ", totalScore);
-                 var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
-                 window.location.href = "/Examinee/saveScore?score="+totalScore.toString()+"&eid="+ExamId;
+            
+              //    window.location.href = "/Examinee/SaveScore?score="+totalScore.toString()+"&eid="+ExamId;
+                @* window.location.href = "/Examinee/SampleAction"; *@
+        submitForm(totalScore.toString());
             })
             .catch((error) => {
                 console.error("Error occurred during API fetch:", error);
             });
     }
 
+
+let isSubmitting = false;
+
+function submitForm(totalScore) {
+    console.log("submitting it")
+    if (isSubmitting) return; // Prevent multiple submissions
+    isSubmitting = true;
+     var ExamId = document.querySelector('#Exam').getAttribute('exam-id');
+        document.getElementById("scoreInput").value = totalScore;
+    document.getElementById("eidInput").value = ExamId;
+
+    // Submit the form
+    document.getElementById("scoreForm").submit();
+                  
+}
 
 
 </script>

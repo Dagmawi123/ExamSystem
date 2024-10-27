@@ -1,22 +1,11 @@
-﻿//using ExamSystem.Models.ViewModels;
-using Azure.Core;
-using ExamSystem.Models;
+﻿using ExamSystem.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using System.Reflection.Metadata;
 using System.Text;
-using System.Text.Json.Nodes;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using ExamSystem.Models.ViewModels;
-using Microsoft.AspNetCore.Hosting;
-//using System.Web.Helpers;
-//using ExamSystem.Models;
-//using ExamSystem.Models.ViewModels;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.EntityFrameworkCore;
 
 namespace ExamSystem.Controllers
 {
@@ -49,38 +38,38 @@ namespace ExamSystem.Controllers
 
             JObject json = JObject.Parse(requestBody);
 
-            Subject sbj = examContext.Subjects.Where(s => s.SubjectName == (string)json["Subject"]).First();
+            Subject sbj = examContext.Subjects.Where(s => s.SubjectName == (string)json["Subject"]!).First();
             Exam ex = new Exam()
             {
-                ExamName = (string)json["Exam"],
+                ExamName = (string)json["Exam"]!,
                 ExamDifficulty = "Proffessional",
                 DateCreated = DateTime.Now,
-                PassingMark = (int)json["Pass"],
-                TimeAllocated = (string)json["Time"],
-                QuestionWeight = (int)json["Value"],
+                PassingMark = (int)json["Pass"]!,
+                TimeAllocated = (string)json["Time"]!,
+                QuestionWeight = (int)json["Value"]!,
                 Subject = sbj,
             };
 
           await examContext.Exams.AddAsync(ex);
           
 
-            JArray questionAnswerArray = (JArray)json["questions"];
+            JArray questionAnswerArray = (JArray)json["questions"]!;
 
             foreach (JObject questionAnswerObj in questionAnswerArray)
             {
-                string question = (string)questionAnswerObj["quest"];
+                string question = (string)questionAnswerObj["quest"]!;
                 Question qst = new Question() { 
                 Query=question,
                 Exam=ex
                 };
                 await examContext.Questions.AddAsync(qst);
               
-                JArray answerArray = (JArray)questionAnswerObj["answer"];
+                JArray answerArray = (JArray)questionAnswerObj["answer"]!;
 
                 foreach (JArray answer in answerArray)
                 {
                     bool answerValue = (bool)answer[0];
-                    string answerText = (string)answer[1];
+                    string answerText = (string)answer[1]!;
 
                     Answer asr = new Answer() { 
                     AnswerText=answerText,
@@ -89,10 +78,8 @@ namespace ExamSystem.Controllers
                     };
                   await examContext.Answers.AddAsync(asr);
                 
-                    // Your code...
                 }
 
-                // Your code...
             }
             try {
                 await examContext.SaveChangesAsync();
@@ -105,11 +92,6 @@ namespace ExamSystem.Controllers
 
             return Ok(); // Return an appropriate response
            
-
-
-
-
-            //// return Ok();
         }
         public async Task<IActionResult>  SaveEdit() {
             string requestBody;
@@ -120,45 +102,39 @@ namespace ExamSystem.Controllers
 
             JObject json = JObject.Parse(requestBody);
 
-            Subject sbj = examContext.Subjects.Where(s => s.SubjectName == (string)json["Subject"]).First();
-            Exam ex = examContext.Exams.Where(e => e.ExamId == (Guid)json["Id"]).First();
+            Subject sbj = examContext.Subjects.Where(s => s.SubjectName == (string)json["Subject"]!).First();
+            Exam ex = examContext.Exams.Where(e => e.ExamId == (Guid)json["Id"]!).First();
             ex.Subject = sbj;
-            ex.ExamName = (string)json["Exam"];
+            ex.ExamName = (string)json["Exam"]!;
             // ex.ExamDifficulty = "Proffessional",
             ex.DateCreated = DateTime.Now;
-            ex.PassingMark = (int)json["Pass"];
-            ex.TimeAllocated = (string)json["Time"];
-            ex.QuestionWeight = (int)json["Value"];
+            ex.PassingMark = (int)json["Pass"]!;
+            ex.TimeAllocated = (string)json["Time"]!;
+            ex.QuestionWeight = (int)json["Value"]!;
             await examContext.SaveChangesAsync();
 
-            JArray questionAnswerArray = (JArray)json["questions"];
+            JArray questionAnswerArray = (JArray)json["questions"]!;
             foreach (JObject questionAnswerObj in questionAnswerArray)
             {
-                string question = (string)questionAnswerObj["quest"];
-                Question qst = examContext.Questions.Where(q => q.QuesionId == (Guid)questionAnswerObj["QId"]).First();
+                string question = (string)questionAnswerObj["quest"]!;
+                Question qst = examContext.Questions.Where(q => q.QuesionId == (Guid)questionAnswerObj["QId"]!).First();
                 qst.Query = question;
                 await examContext.SaveChangesAsync();
-                JArray answerArray = (JArray)questionAnswerObj["answer"];
+                JArray answerArray = (JArray)questionAnswerObj["answer"]!;
 
                 foreach (JArray answer in answerArray)
                 {
                     bool answerValue = (bool)answer[1];
-                    string answerText = (string)answer[2];
+                    string answerText = (string)answer[2]!;
 
                     Answer asr = examContext.Answers.Where(e => e.AnswerId == (Guid)answer[0]).First();
                     asr.AnswerText = answerText;
                     asr.isCorrect=answerValue;                  
 
                     await examContext.SaveChangesAsync();
-
-                    // Your code...
                 }
 
-                // Your code...
             }
-
-
-
 
             return Ok();
         }
@@ -169,17 +145,7 @@ namespace ExamSystem.Controllers
 
         public IActionResult EditExam(Guid id)
         {
-            //    try
-            ////    {
-            ////    {
             Exam ex = examContext.Exams.Include(e => e.Subject).Include(e => e.Questions).ThenInclude(q => q.Answers).Where(e => e.ExamId == id).First();
-            ////        //var jsobj = new {Exam=ex.ExamName,Time=ex.TimeAllocated,Value=ex.QuestionWeight,
-            ////        //Subjec=ex.Subject.SubjectName,
-            ////        //    };
-            ////        //jsobj.questions = []
-            ////        return Json(ex);
-            ////        return Json(ex);
-
             var options = new JsonSerializerOptions
             {
                 ReferenceHandler = ReferenceHandler.Preserve,
@@ -188,17 +154,6 @@ namespace ExamSystem.Controllers
 
             string json = JsonSerializer.Serialize(ex, options);
             return Content(json, "application/json");
-
-
-            //    }
-            //    catch (Exception ex) {
-            //        Console.WriteLine(ex.Message);
-            //        return Ok();
-            //    }
-
-
-
-
         }
 
         [HttpGet]
@@ -223,8 +178,6 @@ namespace ExamSystem.Controllers
                 uniqueCFileName = Path.Combine(uploadFolder, FileName);
                 reference.DocPath.CopyTo(new FileStream(uniqueCFileName, FileMode.Create));
             }
-        //   
-          //  {
                 try
                 {
                     Subject sbje = examContext.Subjects.Where(s => s.SubjectName == reference.Subject).First();
@@ -244,9 +197,7 @@ namespace ExamSystem.Controllers
                 catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, $"Something went wrong{ex.Message}");
-                    // throw;
                 }
-            //}
             ModelState.AddModelError(string.Empty, $"Something went wrong invalid model");
             return View();
         }
@@ -262,13 +213,12 @@ namespace ExamSystem.Controllers
         public async Task<IActionResult> Subject(SubjectViewModel subject)
         {
             string FileName = "";
-            string uniqueCFileName = "";
             string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "docs");
 
             if (subject.ImageUrl != null)
             {
                  FileName = Guid.NewGuid().ToString() + "_" + subject.ImageUrl.FileName;
-                uniqueCFileName = Path.Combine(uploadFolder, FileName);
+                string uniqueCFileName = Path.Combine(uploadFolder, FileName);
                 subject.ImageUrl.CopyTo(new FileStream(uniqueCFileName, FileMode.Create));
             }
             if (ModelState.IsValid)
@@ -287,7 +237,7 @@ namespace ExamSystem.Controllers
                 catch (Exception ex)
                 {
                     ModelState.AddModelError(string.Empty, $"Something went wrong{ex.Message}");
-                    // throw;
+                 
                 }
             }
             ModelState.AddModelError(string.Empty, $"Something went wrong invalid model");
@@ -342,7 +292,7 @@ namespace ExamSystem.Controllers
 
         public async Task<ActionResult> DeleteDoc(Guid id)
         {
-            Models.Document doc = await examContext.Documents.FindAsync(id);
+            Models.Document? doc = await examContext.Documents.FindAsync(id);
             if (doc != null)
             {
                 examContext.Documents.Remove(doc);
@@ -353,7 +303,7 @@ namespace ExamSystem.Controllers
         }
         public async Task<ActionResult> DeleteSub(Guid id)
         {
-            Models.Subject Sub = await examContext.Subjects.FindAsync(id);
+            Models.Subject? Sub = await examContext.Subjects.FindAsync(id);
             if (Sub != null)
             {
                 examContext.Subjects.Remove(Sub);
@@ -365,10 +315,6 @@ namespace ExamSystem.Controllers
 
         public IActionResult Dash()
         {
-
-            // var subjectCount = ecomContext.Subjects.Count();
-            // var referenceCount = ecomContext.Documents.Count();
-            // var examCount = ecomContext.Exams.Count();
 
             ViewBag.Subjects = examContext.Subjects.Count();
             ViewBag.Exams = examContext.Exams.Count();

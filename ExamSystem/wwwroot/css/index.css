@@ -365,7 +365,7 @@ div.answers{
 }
 
 div.buttons {
-    width: 34%;
+    width: 20%;
     margin: auto;
     display: flex;
     flex-direction: row;

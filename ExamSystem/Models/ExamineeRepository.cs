@@ -76,20 +76,19 @@ namespace ExamSystem.Models
             return names;
         }
 
-        public List<Result> GetFilteredResults(string exam,string subject,string score,string date) {
+        public List<Result> GetFilteredResults(string exam,string subject,string score,string date,string id) {
             int realScore = score == "75" ? 75 : score == "50" ? 50 : 0;
             DateTime dates = DateTime.Now;
             if (!string.IsNullOrEmpty(date))
                  dates = DateTime.Parse(date);
-            string id = "85FE0EE1-22CC-42D4-8816-9DE99438188C";
-            List<Result> res = examContext.Results
+             List<Result> res = examContext.Results
     .Include(e => e.User)
     .Include(e => e.Exam)
-        .ThenInclude(e => e.Subject)
-    .Where(r => ( r.User.Id == id &&exam==null||r.Exam.ExamName == exam) && 
-    (subject==null||r.Exam.Subject.SubjectName == subject)&&
-    ((date==null||r.DateTaken.Date == dates.Date))&&
-    (score==null||r.RowScore>=realScore&&r.RowScore<=realScore+(realScore==0?50:25)))
+        .ThenInclude(e => e!.Subject)
+    .Where(r =>  r.User.Id == id &&(exam==null||r.Exam!.ExamName == exam) && 
+    (subject==null||r.Exam!.Subject.SubjectName == subject)&&
+    (date==null||r.DateTaken.Date == dates.Date)&&
+    ((score==null)||r.outOf100>=realScore&&r.outOf100<=realScore+(realScore==0?50:25)))
     .ToList();
            
             return res;
@@ -118,7 +117,7 @@ namespace ExamSystem.Models
             //return res;
         }
         public List<Exam> FilterExams(string name) { 
-        List<Exam> exams = examContext.Exams.Where(e=>e.ExamName.Contains(name)).ToList();
+        List<Exam> exams = examContext.Exams.Where(e=>e.ExamName.Contains(name)).Include(e=>e.Subject).ToList();
             return exams;
         }
 
@@ -133,8 +132,11 @@ namespace ExamSystem.Models
                 return docs;
         }
 
-        public bool checkAnswer(Guid id) {
-            bool value = examContext.Answers.Where(a => a.AnswerId == id).Select(a => a.isCorrect).First();
+        public async Task<bool> checkAnswer(Guid id) {
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Checking answer for " + id.ToString());
+            Console.BackgroundColor = ConsoleColor.White;
+            bool value = await examContext.Answers.Where(a => a.AnswerId == id).Select(a => a.isCorrect).FirstAsync();
             return value;
         }
         public int GetNumberofQuestions(Guid Eid) {

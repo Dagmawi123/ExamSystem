@@ -16,12 +16,13 @@ namespace ExamSystem.Models
         public void addScore(Result res);
         public List<string> GetExamNames();
         public List<string> GetSubjectNames();
-        public List<Result> GetFilteredResults(string exam, string subject, string score, string date);
+        public List<Result> GetFilteredResults(string exam, string subject, string score, string date,string userId);
         public ResultDetail GetResultDetail(Guid resId);
         public List<Exam> FilterExams(string name);
         public List<Document> FilterDocs(string DocName, string Subject, string version);
-        public bool checkAnswer(Guid id);
-        //public float ComputeScore(Guid id);
+        public Task<bool> checkAnswer(Guid id);
         public int GetNumberofQuestions(Guid Eid);
+        //public Task SaveResult(User user,int score,Guid eid);
+        //public User GetUser(Guid id);
         }
     }

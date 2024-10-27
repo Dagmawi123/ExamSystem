@@ -114,11 +114,14 @@ C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Micros
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.OpenApi.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.Web.Infrastructure.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 C:\Users\user\source\repos\ExamSystem\ExamSys\ExamSystem\bin\Debug\net7.0\System.Drawing.Common.dll

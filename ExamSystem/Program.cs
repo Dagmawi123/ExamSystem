@@ -3,13 +3,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<ExamContext, ExamContext>();
+//builder.Services.AddScoped<IExamineeRepository,ExamineeRepository>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ExamContext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection"),
+      o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
 });
 //builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.ConfigureApplicationCookie(options =>
@@ -19,6 +23,11 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddIdentity<User, IdentityRole>().
     AddEntityFrameworkStores<ExamContext>().AddDefaultTokenProviders();
 builder.Services.AddScoped<IExamineeRepository, ExamineeRepository>();
+//services.AddAuthentication().AddGoogle(googleOptions =>
+//{
+//    googleOptions.ClientId = configuration["Authentication:Google:ClientId"];
+//    googleOptions.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -30,7 +39,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 //app.UseAuthorization();
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
@@ -38,6 +47,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
+//app.UseSwaggerUI(c =>)
 
 //builder.Services.AddScoped<ExamContext, ExamContext>();
 //builder.Services.AddDbContext<ExamContext>(options => {
